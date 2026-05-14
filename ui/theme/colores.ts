@@ -1,21 +1,25 @@
 export const coloresBase = {
-    musgo: '#0A0D04',
-    oliva: '#1A2209',
-    lima: '#d7df58', //'#C0F53D',
-    marfil: '#FAFFF3',
-    gris900: '#333333',
-    gris600: '#4b5563',
-    blanco: '#ffffff',
+    azul: '#0061FE',
+    celeste: '#05DEFF',
+    blanco: '#FFF',
     negro: '#000000',
+    negro2: '#141414',
+    negro3: '#212833',
+    fondo1: '#F5F5F5',
+    fondo2: '#dfe9f9',
+    fondo3: '#ccddf9',
 };
 
 export const paletaMarca = {
     
-    principal: coloresBase.lima,
-    secundario: coloresBase.oliva,
-    acento: coloresBase.marfil,
-    superficie: coloresBase.musgo,
+    principal: coloresBase.azul,
+    secundario: coloresBase.fondo1,
+    acento: coloresBase.celeste,
     
-    textoPrincipal: coloresBase.musgo,
-    textoSecundario: coloresBase.gris600,
+    textoPrincipal: coloresBase.negro2,
+    textoSecundario: coloresBase.negro3,
+
+    fondo1: coloresBase.fondo1,
+    fondo2: coloresBase.fondo2,
+    fondo3: coloresBase.fondo3,
 };

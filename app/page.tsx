@@ -7,9 +7,11 @@ export const metadata = {
 	  description:'A través del dibujo y el arte, invitamos a los niños a imaginar, crear y dar vida a sus propias prendas de vestir',
 };
 
-import Beneficios from './component/Beneficios';
+import Beneficios from './component/beneficios/Beneficios';
 import Solucion from './component/solucion/Solucion';
 import Header from './component/header/Header';
+import Testimonios from './component/testimonios/Testimonios';
+import ClientesLogos from './component/clientes/ClientesLogos';
 
 export default async function HomePage() {
     
@@ -19,6 +21,8 @@ export default async function HomePage() {
             <Header/>
             <Solucion/>
             <Beneficios/>
+            <Testimonios />
+            <ClientesLogos />
         </Box>
     );
 }

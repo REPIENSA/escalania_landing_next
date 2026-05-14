@@ -179,7 +179,7 @@ export function FormularioContacto() {
         <Card
             sx={{
                 borderRadius: { xs: "2px", md: "20px" },
-                backgroundColor: theme.palette.marca.principal,
+                backgroundColor: theme.palette.marca.secundario,
                 boxShadow: "none",
             }}
         >
@@ -189,11 +189,11 @@ export function FormularioContacto() {
                     py: { xs: 3, md: 4 },
                 }}
             >
-                <Typography variant="h4" sx={{ mb: 1 }}>
+                <Typography variant="h3" color='primary' sx={{ mb: 1}}>
                     Agenda una demostración
                 </Typography>
 
-                <Typography variant="body1" sx={{ mb: 4 }}>
+                <Typography variant="body1" sx={{ mb: 4}}>
                     Déjanos tus datos y te contactaremos para mostrarte cómo un
                     agente de IA puede atender a tus clientes por WhatsApp,
                     Instagram y Facebook.

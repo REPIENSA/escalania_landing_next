@@ -1,23 +1,26 @@
+import { createBreakpoints } from '@mui/system';
+const breakpoints = createBreakpoints({});
+
 export const tipografia = {
     fontFamily: 'var(--font-geist-sans), Arial, sans-serif',
 
-    h1: {
+    h1:{
         fontSize: '3.5rem',
         fontWeight: 800,
         lineHeight: 1.3,
-        letterSpacing: '-0.02em',
+        [breakpoints.up('sm')]: { fontSize: '2.5rem' },
     },
 
-    h2: {
-        fontSize: '3.5rem',
-        fontWeight: 600,
+    h2:{
+        [breakpoints.up('xs')]: { fontSize: '2.5rem',fontWeight: 600, },
+        [breakpoints.up('lg')]: { fontSize: '3.5rem',fontWeight: 700, },
         lineHeight: 1.3,
-        letterSpacing: '-0.02em',
+        
     },
 
     h3: {
         fontSize: '2.5rem',
-        fontWeight: 600,
+        fontWeight: 700,
         lineHeight: 1.3,
     },
 

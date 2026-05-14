@@ -38,34 +38,34 @@ export function CampoTextoFormulario({
             sx={{
                 "& .MuiOutlinedInput-root": {
                     borderRadius: "10px",
-                    backgroundColor: alpha(theme.palette.common.black, 0.08),
-                    color: theme.palette.common.black,
+                    backgroundColor: alpha(theme.palette.marca.fondo2, 0.6),
+                    //color: theme.palette.marca.primario,
                     transition: "all 0.25s ease",
                     "& fieldset": {
                         borderColor: "transparent",
                     },
                     "&:hover fieldset": {
-                        borderColor: alpha(theme.palette.common.black, 0.15),
+                        borderColor: theme.palette.marca.principal,
                     },
                     "&.Mui-focused fieldset": {
-                        borderColor: theme.palette.marca.secundario,
-                        borderWidth: "2px",
+                        borderColor: theme.palette.marca.principal,
+                        borderWidth: "1px",
                     },
                     "&.Mui-error fieldset": {
                         borderColor: "#b3261e",
                     },
                 },
                 "& .MuiInputLabel-root": {
-                    color: alpha(theme.palette.common.black, 0.72),
+                    color: theme.palette.marca.principal,
                 },
                 "& .MuiInputLabel-root.Mui-focused": {
-                    color: theme.palette.common.black,
+                    color: theme.palette.marca.principal,
                 },
                 "& .MuiInputBase-input": {
                     py: 1.7,
                 },
                 "& .MuiFormHelperText-root": {
-                    mx: 0.5,
+                    mx: 2,
                     mt: 0.8,
                 },
             }}

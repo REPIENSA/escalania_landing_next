@@ -17,7 +17,7 @@ export default function Header() {
                             <Izquierda/>
                         </Grid>
 
-                        <Grid size={{ xs: 12, md:6, lg:5}}>
+                        <Grid id="agendar" size={{ xs: 12, md:6, lg:5}}>
                             <FormularioContacto />
                         </Grid>
                     </Grid>

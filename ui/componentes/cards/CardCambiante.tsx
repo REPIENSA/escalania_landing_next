@@ -31,10 +31,10 @@ export function CardCambiante({
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                setEstaVisible(entry.intersectionRatio >= 0.2);
+                setEstaVisible(entry.intersectionRatio >= 0.5);
             },
             {
-                threshold: [0, 0.2, 1],
+                threshold: [0, 0.5, 1],
             }
         );
 

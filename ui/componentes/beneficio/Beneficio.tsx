@@ -14,20 +14,19 @@ export interface PropsBeneficio {
 export function Beneficio({icono, titulo, subTitulo}: PropsBeneficio) {
     const theme = useTheme();
     return (
-        <CornerCard cornerColor={theme.palette.marca.principal} variant="dot"
-            /*sx={{
-                backgroundColor: theme.palette.marca.superficie,
-                //borderRadius: 10,
+        <Card
+            sx={{
+                backgroundColor: theme.palette.marca.fondo1,
+                borderRadius: 5,
                 boxShadow: "none",
                 width: "100%",
                 height: "100%",
-                border: `0.1px solid ${theme.palette.marca.principal}`,
                 transition: "transform 0.25s ease, box-shadow 0.25s ease",
                 transform: "translateY(0)",
                 "&:hover": {
                     transform: "translateY(-12px)",
                 },
-            }}*/
+            }}
         >
             <CardContent
                 sx={{
@@ -37,7 +36,6 @@ export function Beneficio({icono, titulo, subTitulo}: PropsBeneficio) {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    color: '#fff'
                 }}
             >
 
@@ -50,10 +48,10 @@ export function Beneficio({icono, titulo, subTitulo}: PropsBeneficio) {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        my: 6,
+                        my: 3,
                     }}
                 >
-                    <Icon sx={{ fontSize: 60, color: theme.palette.marca.principal }}>
+                    <Icon sx={{ fontSize: 80, color: theme.palette.marca.principal }}>
                         {icono}
                     </Icon>
                 </Box>
@@ -64,6 +62,6 @@ export function Beneficio({icono, titulo, subTitulo}: PropsBeneficio) {
                     </Typography>
                 </Box>
             </CardContent>
-        </CornerCard >
+        </Card >
     )
 }

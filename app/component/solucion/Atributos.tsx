@@ -10,7 +10,7 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import ForwardIcon from '@mui/icons-material/Forward';
 
-export default function Canales() {
+export default function Atributos() {
 
     const theme = useTheme();
     
@@ -18,7 +18,7 @@ export default function Canales() {
         <Box>
 
             <Box sx={{ mb: 3 }}>
-                <Typography variant="h4"
+                <Typography variant="h3"
                     sx={{
                         display: "inline",
                         backgroundImage: "linear-gradient(currentColor, currentColor)",
@@ -39,10 +39,10 @@ export default function Canales() {
             </Box>
 
             <Box sx={{ mb: 2 }}>
-                <Typography variant="body1">
+                <Typography>
                     En Escalania implementamos un agente de IA entrenado para atender a tus clientes en tus canales principales: WhatsApp, Instagram, Facebook, etc.
                 </Typography>
-                <Typography variant="body1">
+                <Typography>
                     Tu agente puede:
                 </Typography>
             </Box>
@@ -54,54 +54,54 @@ export default function Canales() {
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <ForwardIcon color='secondary' fontSize="medium"/>
+                                    <ForwardIcon fontSize="medium"/>
                                 </ListItemIcon>
-                                <Typography variant="body1">Responder preguntas frecuentes.</Typography>
+                                <Typography>Responder preguntas frecuentes.</Typography>
                             </ListItemButton>
                         </ListItem>
 
                         <ListItem disablePadding>
                             <ListItemButton>
                             <ListItemIcon>
-                                <ForwardIcon color="secondary" fontSize="medium"/>
+                                <ForwardIcon fontSize="medium"/>
                             </ListItemIcon>
-                            <Typography variant="body1">Dar información sobre tus servicios.</Typography>
+                            <Typography>Dar información sobre tus servicios.</Typography>
                             </ListItemButton>
                         </ListItem>
 
                         <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
-                                    <ForwardIcon color="secondary" fontSize="medium"/>
+                                    <ForwardIcon fontSize="medium"/>
                                 </ListItemIcon>
-                                <Typography variant="body1">Resolver dudas de clientes potenciales.</Typography>
+                                <Typography>Resolver dudas de clientes potenciales.</Typography>
                             </ListItemButton>
                         </ListItem>
 
                         <ListItem disablePadding>
                             <ListItemButton>
                             <ListItemIcon>
-                                <ForwardIcon color="secondary" fontSize="medium"/>
+                                <ForwardIcon fontSize="medium"/>
                             </ListItemIcon>
-                            <Typography variant="body1">Agendar citas.</Typography>
+                            <Typography>Agendar citas.</Typography>
                             </ListItemButton>
                         </ListItem>
 
                         <ListItem disablePadding>
                             <ListItemButton>
                             <ListItemIcon>
-                                <ForwardIcon color="secondary" fontSize="medium"/>
+                                <ForwardIcon fontSize="medium"/>
                             </ListItemIcon>
-                            <Typography variant="body1">Guiar conversaciones hacia la venta.</Typography>
+                            <Typography>Guiar conversaciones hacia la venta.</Typography>
                             </ListItemButton>
                         </ListItem>
 
                         <ListItem disablePadding>
                             <ListItemButton>
                             <ListItemIcon>
-                                <ForwardIcon color="secondary" fontSize="medium"/>
+                                <ForwardIcon fontSize="medium"/>
                             </ListItemIcon>
-                            <Typography variant="body1">Mantener una atención rápida y profesional.</Typography>
+                            <Typography>Mantener una atención rápida y profesional.</Typography>
                             </ListItemButton>
                         </ListItem>
 
