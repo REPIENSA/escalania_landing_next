@@ -4,71 +4,48 @@ import { Box, Container, Typography } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 import { TestimonioCard } from './TestimonioCard';
 import { TESTIMONIOS } from './Testimonios.data';
+import { CarruselPasos } from './CarruselPasos';
+
 
 export default function Testimonios() {
     const theme = useTheme();
 
     return (
-        <Box
-            component="section"
-            sx={{
-                py: { xs: 8, md: 12 },
-                backgroundColor: alpha(theme.palette.marca.principal, 0.04),
-                overflow: 'hidden',
-            }}
-        >
-            <Container maxWidth="lg">
-                {/* Header */}
-                <Box sx={{ mb: { xs: 5, md: 7 } }}>
-                    <Typography
-                        variant="overline"
+        <Box sx={{pb:{ xs: 6, md:8, lg: 16}, px:{ xs: 6, md:8, lg: 12}, background: theme.palette.marca.fondo2 }}>
+            <Container maxWidth="xl">
+
+                <Box sx={{ mb: 10, textAlign:'center'}}>
+                    <Typography variant="h2"
                         sx={{
-                            color: theme.palette.marca.principal,
-                            fontWeight: 700,
-                            letterSpacing: 2,
-                            display: 'block',
-                            mb: 1,
+                            display: "inline",
+                            backgroundImage: "linear-gradient(currentColor, currentColor)",
+                            backgroundRepeat: "no-repeat",
+                            backgroundPosition: "0 100%",
+                            backgroundSize: "0% 4px",
+                            transition: "background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
+
+                            "@media (hover: hover)": {
+                                "&:hover": {
+                                    backgroundSize: "100% 4px",
+                                },
+                            },
                         }}
-                    >
-                        Testimonios
-                    </Typography>
-                    <Typography
-                        variant="h3"
-                        sx={{ mb: 1.5 }}
                     >
                         Lo que dicen nuestros clientes
                     </Typography>
-                    <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        sx={{ maxWidth: 480 }}
-                    >
-                        Negocios reales que ya automatizaron su atención y están vendiendo más.
+
+                    <Typography variant="h5"  sx={{ mt:2}}>
+                        Negocios reales que ya automatizaron su atencións.
                     </Typography>
                 </Box>
-            </Container>
 
-            {/* Scroll horizontal sin scrollbar visible */}
-            <Box
-                sx={{
-                    display: 'flex',
-                    gap: 3,
-                    px: { xs: 2, sm: 4, md: 8 },
-                    overflowX: 'auto',
-                    pb: 2,
-                    scrollSnapType: 'x mandatory',
-                    '&::-webkit-scrollbar': { display: 'none' },
-                    msOverflowStyle: 'none',
-                    scrollbarWidth: 'none',
-                    '& > *': {
-                        scrollSnapAlign: 'start',
-                    },
-                }}
-            >
-                {TESTIMONIOS.map((testimonio) => (
-                    <TestimonioCard key={testimonio.id} testimonio={testimonio} />
-                ))}
-            </Box>
+                <CarruselPasos duracionDeslizamiento={0.7} pausa={2} gap={3}>
+                    {TESTIMONIOS.map((testimonio) => (
+                        <TestimonioCard key={testimonio.id} testimonio={testimonio} />
+                    ))}
+                </CarruselPasos>
+
+            </Container>
         </Box>
     );
 }

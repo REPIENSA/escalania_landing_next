@@ -35,8 +35,7 @@ export default function ClientesLogos() {
                     ))}
                 </Marquee>
 
-                <Grid container spacing={6} sx={{ alignItems:{ xs: 'left', md: 'center' }, justifyContent: "center", mt:10, mb:4 }}>
-
+                <Grid container spacing={6} sx={{ alignItems:{ xs: 'left', md: 'center' }, justifyContent: "center", mt:10, mb:6 }}>
                     <Grid size={{ xs: 12, md:10, lg:7}} sx={{textAlign:{ xs: 'left', md: 'center'}}}>
                         <Typography variant="h2" align='center'
                             sx={{
@@ -61,7 +60,6 @@ export default function ClientesLogos() {
                             En el último año hemos creado agentes de Inteligencia Artificial para más de 10 clientes.
                         </Typography>
                     </Grid>
-
                 </Grid>
 
                 <Box sx={{textAlign:{ xs: 'left', md: 'center' }}}>

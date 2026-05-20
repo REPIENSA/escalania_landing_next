@@ -9,9 +9,9 @@ export default function Beneficios() {
     const theme = useTheme();
     
     return (
-        <Box sx={{py:{ xs: 6, md:8, lg: 12}, px:{ xs: 6, md:8, lg: 12}, background: theme.palette.marca.fondo2 }}>
+        <Box sx={{py:{ xs: 6, md:8, lg: 16}, px:{ xs: 6, md:8, lg: 12}, background: theme.palette.marca.fondo2 }}>
             <Container maxWidth="xl">
-                <Box sx={{ mb: 10 }}>
+                <Box sx={{ mb: 10, textAlign:'center'}}>
                     <Typography variant="h2"
                         sx={{
                             display: "inline",
@@ -35,8 +35,8 @@ export default function Beneficios() {
                 <Grid container spacing={4} sx={{ alignItems: "stretch" }}>
                     
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
-                        <Typography variant="h6">
-                            Cada conversación bien atendida puede convertirse en una oportunidad. Esto es lo que gana tu negocio cuando la atención empieza a trabajar a tu favor.
+                        <Typography variant="h4">
+                            Cada conversación bien atendida es una oportunidad.
                         </Typography>
                     </Grid>
 

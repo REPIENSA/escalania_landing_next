@@ -3,7 +3,7 @@
 import { Box, Typography, Avatar } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import { useTheme, alpha } from '@mui/material/styles';
-import { Testimonio } from './testimonios.data';
+import { Testimonio } from './Testimonios.data';
 
 interface TestimonioCardProps {
     testimonio: Testimonio;
@@ -17,16 +17,16 @@ export function TestimonioCard({ testimonio }: TestimonioCardProps) {
             sx={{
                 minWidth: { xs: 260, sm: 300 },
                 maxWidth: { xs: 260, sm: 300 },
+                height: '100%',
                 backgroundColor: theme.palette.background.paper,
                 borderRadius: 5,
-                p: 3,
+                p: 4,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
                 flexShrink: 0,
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 '&:hover': {
-                    transform: 'translateY(-4px)',
                     boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.12)}`,
                 },
             }}
@@ -34,12 +34,12 @@ export function TestimonioCard({ testimonio }: TestimonioCardProps) {
             {/* Estrellas */}
             <Box sx={{ display: 'flex', gap: 0.5 }}>
                 {Array.from({ length: testimonio.calificacion }).map((_, i) => (
-                    <StarIcon key={i} sx={{fontSize: 24, color: '#F5A623',}}/>
+                    <StarIcon key={i} sx={{fontSize: 32, color: '#F5A623',}}/>
                 ))}
             </Box>
 
             {/* Texto */}
-            <Typography variant="body1">
+            <Typography variant="body1" sx={{ flexGrow: 1, mb:3 }}>
                 {testimonio.texto}
             </Typography>
 
@@ -49,19 +49,19 @@ export function TestimonioCard({ testimonio }: TestimonioCardProps) {
                     sx={{
                         width: 36,
                         height: 36,
-                        fontSize: 13,
+                        fontSize: 14,
                         fontWeight: 700,
-                        backgroundColor: theme.palette.marca.principal,
+                        backgroundColor: theme.palette.text.primary,
                         color: theme.palette.marca.fondo1,
                     }}
                 >
                     {testimonio.avatar}
                 </Avatar>
                 <Box>
-                    <Typography variant="body2">
+                    <Typography variant="body1">
                         {testimonio.nombre}
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    <Typography variant="body1">
                         {testimonio.fuente}
                     </Typography>
                 </Box>
