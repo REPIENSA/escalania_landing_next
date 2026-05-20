@@ -18,7 +18,7 @@ export default function Izquierda() {
                 </Typography>   
             </Box>
 
-            <Box sx={{ mb: 3 }}>
+            <Box>
                 <Typography variant="h5">
                     Automatiza la atención de tus clientes con un agente 24/7 que responde consultas, brinda información, agenda citas y te ayuda a convertir más conversaciones en ventas.
                 </Typography>   

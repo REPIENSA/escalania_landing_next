@@ -5,23 +5,23 @@ export const tipografia = {
     fontFamily: 'var(--font-geist-sans), Arial, sans-serif',
 
     h1:{
-        fontSize: '3.5rem',
-        fontWeight: 800,
-        lineHeight: 1.3,
-        [breakpoints.up('sm')]: { fontSize: '2.5rem' },
+        [breakpoints.up('xs')]: { fontSize: '1.8rem',fontWeight: 700, },
+        [breakpoints.up('md')]: { fontSize: '2.5rem',fontWeight: 700, },
+        [breakpoints.up('lg')]: { fontSize: '3.5rem',fontWeight: 800, },
     },
 
     h2:{
-        [breakpoints.up('xs')]: { fontSize: '2.5rem',fontWeight: 600, },
+        [breakpoints.up('xs')]: { fontSize: '2.5rem',fontWeight: 700, },
         [breakpoints.up('lg')]: { fontSize: '3.5rem',fontWeight: 700, },
         lineHeight: 1.3,
-        
     },
 
     h3: {
-        fontSize: '2.5rem',
         fontWeight: 700,
         lineHeight: 1.3,
+        [breakpoints.up('xs')]: { fontSize: '1.8rem'},
+        [breakpoints.up('md')]: { fontSize: '2.5rem'},
+        [breakpoints.up('lg')]: { fontSize: '2.5rem'},
     },
 
     h4: {
@@ -31,9 +31,11 @@ export const tipografia = {
     },
 
     h5: {
-        fontSize: '1.5rem',
         fontWeight: 500,
         lineHeight: 1.5 ,
+        [breakpoints.up('xs')]: { fontSize: '1.1rem'},
+        [breakpoints.up('md')]: { fontSize: '1.5rem'},
+        [breakpoints.up('lg')]: { fontSize: '1.5rem'},
     },
 
     h6: {
