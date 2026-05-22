@@ -10,7 +10,7 @@ export default function Izquierda() {
     return (    
         <Box>      
             <Box sx={{ mb: 3 }}>
-                <Typography variant="h1">
+                <Typography variant="h1" sx={{mb:1}}>
                     Agente de IA para WhatsApp, Instagram y Facebook
                 </Typography>
                 <Typography variant="h1" sx={{color:theme.palette.marca.principal}}>

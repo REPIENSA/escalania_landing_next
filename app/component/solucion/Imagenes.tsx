@@ -17,7 +17,10 @@ export default function Imagenes() {
                     position: 'relative',
                     width: '100%',
                     height: '100%',
-                    minHeight: 420,
+                    //minHeight: 420,
+                    [theme.breakpoints.up("xs")]: {minHeight:200},
+                    [theme.breakpoints.up("md")]: {minHeight:300},
+                    [theme.breakpoints.up("lg")]: {minHeight:420},
                 }}
             >
                 {/* Imagen superior izquierda */}
@@ -32,11 +35,7 @@ export default function Imagenes() {
                         zIndex: 1,
                     }}
                 >
-                    <Image
-                        src="/imagenes/chat-whatsapp.svg"
-                        alt="Imagen 1"
-                        fill
-                    />
+                    <Image src="/imagenes/chat-whatsapp.svg" alt="Imagen 1" fill/>
                 </Box>
 
 
@@ -46,18 +45,13 @@ export default function Imagenes() {
                         position: 'absolute',
                         bottom: '0%',
                         right: '0%',
-                        width: '50%',
+                        width: '60%',
                         overflow: 'hidden',
                         zIndex: 2,
                         aspectRatio: '5 / 4',
                     }}
                 >
-                    <Image
-                        src="/imagenes/chat-messenger.svg"
-                        alt="Imagen 2"
-                        fill
-                        style={{ objectFit: 'cover' }}
-                    />
+                    <Image src="/imagenes/chat-messenger.svg" alt="Imagen 2" fill />
                 </Box>
             </Box>
         </CardCambiante>              

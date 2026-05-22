@@ -30,8 +30,7 @@ export function Beneficio({icono, titulo, subTitulo}: PropsBeneficio) {
         >
             <CardContent
                 sx={{
-                    px: 4,
-                    py: 4,
+                    p: { xs:3, md:4, lg:4 },
                     textAlign: "center",
                     height: "100%",
                     display: "flex",

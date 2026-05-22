@@ -52,12 +52,11 @@ export function CardCambiante({
                 //border: `5px solid ${theme.palette.marca.principal}`,
                 backgroundColor: estaVisible ? fondoVisible : fondoBase,
                 boxShadow: "none",
-                p: 2,
                 borderRadius: "20px",
                 transition: "background-color 0.5s ease",
-                [theme.breakpoints.up("md")]: {
-                    p: 8,
-                },
+                [theme.breakpoints.up("xs")]: {p: 3},
+                [theme.breakpoints.up("md")]: {p: 5},
+                [theme.breakpoints.up("lg")]: {p: 7},
                 ...sx,
             }}
             {...props}

@@ -9,16 +9,16 @@ import { Marquee } from './Marquee';
 // Duplicamos el array para crear el efecto infinito
 const LOGOS_DUPLICADOS = [...CLIENTES_LOGOS, ...CLIENTES_LOGOS];
 
-export default function ClientesLogos() {
+export default function Clientes() {
     const theme = useTheme();
 
     return (
-        <Box sx={{py:{ xs: 6, md:8, lg: 16}, px:{ xs: 1, md:1, lg: 1}, background: theme.palette.marca.fondo1 }}>
+        <Box sx={{px:{ xs: 1, md:1, lg: 1}, py:{ xs: 6, md:8, lg: 16}, background: theme.palette.marca.fondo1 }}>
             <Container maxWidth="xl">
 
 
-                <Typography variant="h5" align='center' sx={{mb:2}} color='primary'>
-                    Ellos confiaron en nosotros
+                <Typography variant="h5" align='center' sx={{mb:2}}>
+                    Ellos confiaron en Escalania
                 </Typography>
 
 
@@ -35,7 +35,7 @@ export default function ClientesLogos() {
                     ))}
                 </Marquee>
 
-                <Grid container spacing={6} sx={{ alignItems:{ xs: 'left', md: 'center' }, justifyContent: "center", mt:10, mb:6 }}>
+                <Grid container spacing={6} sx={{ alignItems:{ xs: 'left', md: 'center' }, justifyContent: "center", mt:{ xs: 2, md:8, lg: 14}, mb:6 }}>
                     <Grid size={{ xs: 12, md:10, lg:7}} sx={{textAlign:{ xs: 'left', md: 'center'}}}>
                         <Typography variant="h2" align='center'
                             sx={{
@@ -62,7 +62,7 @@ export default function ClientesLogos() {
                     </Grid>
                 </Grid>
 
-                <Box sx={{textAlign:{ xs: 'left', md: 'center' }}}>
+                <Box sx={{textAlign:{ xs: 'left', md: 'center'}, mb:6}}>
                     <Button variant="contained" href="#agendar" size="large" >
                         Agendar una cita
                     </Button>
