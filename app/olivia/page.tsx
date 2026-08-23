@@ -2,7 +2,7 @@
 import { Box } from '@mui/material';
 
 export const metadata = {
-    title: 'Escalania | Soy el Agente Olivia',
+    title: 'Escalania | Olivia, el agente  de IA para spas y centros esteticos',
 	description:'Agente de Inteligencia Artifical conversacional especializado en spas y centros esteticos',
 };
 
