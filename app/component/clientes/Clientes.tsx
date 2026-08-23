@@ -1,19 +1,12 @@
-'use client';
-
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
-import { useTheme, alpha } from '@mui/material/styles';
 import Image from 'next/image';
+import { paletaMarca } from '@/ui/theme/colores';
 import { CLIENTES_LOGOS } from './clientesLogos.data';
 import { Marquee } from './Marquee';
 
-// Duplicamos el array para crear el efecto infinito
-const LOGOS_DUPLICADOS = [...CLIENTES_LOGOS, ...CLIENTES_LOGOS];
-
 export default function Clientes() {
-    const theme = useTheme();
-
     return (
-        <Box sx={{px:{ xs: 1, md:1, lg: 1}, py:{ xs: 6, md:8, lg: 16}, background: theme.palette.marca.fondo1 }}>
+        <Box sx={{px:{ xs: 1, md:1, lg: 1}, py:{ xs: 6, md:8, lg: 16}, background: paletaMarca.fondo1 }}>
             <Container maxWidth="xl">
 
 
@@ -63,7 +56,7 @@ export default function Clientes() {
                 </Grid>
 
                 <Box sx={{textAlign:{ xs: 'left', md: 'center'}, mb:6}}>
-                    <Button variant="contained" href="#agendar" size="large" >
+                    <Button variant="contained" href="/#agendar" size="large" >
                         Agendar una cita
                     </Button>
                 </Box>

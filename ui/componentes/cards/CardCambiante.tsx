@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useRef, useState } from "react";
 import Card from "@mui/material/Card";
-import { CardProps, Typography } from "@mui/material";
+import { CardProps } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 interface PropsCardCambiante extends CardProps {

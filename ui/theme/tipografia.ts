@@ -7,7 +7,7 @@ export const tipografia = {
     h1:{
         [breakpoints.up('xs')]: { fontSize: '1.8rem',fontWeight: 700, },
         [breakpoints.up('md')]: { fontSize: '2.5rem',fontWeight: 700, },
-        [breakpoints.up('lg')]: { fontSize: '3.5rem',fontWeight: 800, },
+        [breakpoints.up('lg')]: { fontSize: '3.5rem',fontWeight: 700, },
     },
 
     h2:{
@@ -34,14 +34,15 @@ export const tipografia = {
     },
 
     h5: {
-        lineHeight: 1.3 ,
-        [breakpoints.up('xs')]: { fontSize: '1.2rem',fontWeight: 400,},
-        [breakpoints.up('md')]: { fontSize: '1.5rem',fontWeight: 500,},
-        [breakpoints.up('lg')]: { fontSize: '1.4rem',fontWeight: 500,},
+        lineHeight: 1.4 ,
+        fontWeight: 400,
+        [breakpoints.up('xs')]: { fontSize: '1.2rem'},
+        [breakpoints.up('md')]: { fontSize: '1.5rem'},
+        [breakpoints.up('lg')]: { fontSize: '1.4rem'},
     },
 
     h6: {
-        fontSize: '1.2rem',
+        fontSize: '1.4rem',
         fontWeight: 400,
         lineHeight: 1.5,
     },

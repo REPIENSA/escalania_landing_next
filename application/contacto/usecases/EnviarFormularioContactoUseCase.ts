@@ -24,7 +24,6 @@ export class EnviarFormularioContactoUseCase {
             nombreApellidos: entrada.nombreApellidos,
             correo: entrada.correo,
             whatsapp: entrada.whatsapp,
-            rubroEmpresa: entrada.rubroEmpresa,
         });
 
         await this.servicioDeCorreo.enviarFormularioContacto(solicitudContacto);

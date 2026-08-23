@@ -44,7 +44,7 @@ export const tema = createTheme({
             secondary: paletaMarca.textoSecundario,
         },
         background: {
-            default: paletaMarca.fondo2,
+            default: paletaMarca.fondo3,
         },
         marca: {
             principal: paletaMarca.principal,
@@ -74,7 +74,7 @@ export const tema = createTheme({
                 variant: 'contained',         // variant por defecto
             },
             styleOverrides: {
-                root: ({ theme }) => ({
+                root: {
                     borderRadius: '999px',
                     textTransform: 'none',
                     fontWeight: 500,
@@ -94,7 +94,7 @@ export const tema = createTheme({
                     '&.Mui-disabled': {
                         opacity: 0.45,
                     },
-                }),
+                },
 
                 // Variante CONTAINED — botón primario sólido
                 contained: ({ theme }) => ({

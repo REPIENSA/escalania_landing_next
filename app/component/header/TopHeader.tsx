@@ -1,12 +1,7 @@
-'use client';
-import { Box, Container, Grid} from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Image from 'next/image';
-import { useTheme, alpha } from "@mui/material/styles";
 
 export default function TopHeader() {
-
-    const theme = useTheme();
-
     return (
         <Box sx={{ py: { xs: 2, md: 3, lg: 3 }, borderBottom: '1px solid #fff', }}>
             <Container maxWidth="xl">

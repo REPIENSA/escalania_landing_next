@@ -27,12 +27,6 @@ interface PropsRootLayout {
 export default function RootLayout({ children }: Readonly<PropsRootLayout>) {
   return (
     <html lang="es">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={tema}>

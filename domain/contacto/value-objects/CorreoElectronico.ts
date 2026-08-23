@@ -1,5 +1,7 @@
 // src/domain/contacto/value-objects/CorreoElectronico.ts
 
+import { ErrorDeDominio } from "@/domain/shared/errors/ErrorDeDominio";
+
 export class CorreoElectronico {
     public readonly value: string;
 
@@ -7,17 +9,17 @@ export class CorreoElectronico {
         const normalizado = value.trim().toLowerCase();
 
         if (!normalizado) {
-            throw new Error("El correo es obligatorio.");
+            throw new ErrorDeDominio("El correo es obligatorio.");
         }
 
         if (normalizado.length > 150) {
-            throw new Error("El correo no puede superar los 150 caracteres.");
+            throw new ErrorDeDominio("El correo no puede superar los 150 caracteres.");
         }
 
         const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!regexCorreo.test(normalizado)) {
-            throw new Error("El correo no tiene un formato válido.");
+            throw new ErrorDeDominio("El correo no tiene un formato válido.");
         }
 
         this.value = normalizado;

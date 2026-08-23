@@ -1,1 +1,12 @@
-@import "tailwindcss";
+/* Desplazamiento suave para los enlaces ancla (#agendar). */
+html {
+    scroll-behavior: smooth;
+    /* Deja aire por encima del destino al saltar a un ancla. */
+    scroll-padding-top: 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

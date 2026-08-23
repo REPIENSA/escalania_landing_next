@@ -1,8 +1,7 @@
-'use client';
-
 import { Box, Typography, Avatar } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
-import { useTheme, alpha } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
+import { paletaMarca } from '@/ui/theme/colores';
 import { Testimonio } from './Testimonios.data';
 
 interface TestimonioCardProps {
@@ -10,15 +9,13 @@ interface TestimonioCardProps {
 }
 
 export function TestimonioCard({ testimonio }: TestimonioCardProps) {
-    const theme = useTheme();
-
     return (
         <Box
             sx={{
                 minWidth: { xs: 260, sm: 300 },
                 maxWidth: { xs: 260, sm: 300 },
                 height: '100%',
-                backgroundColor: theme.palette.background.paper,
+                backgroundColor: '#fff',
                 borderRadius: 5,
                 p: 4,
                 display: 'flex',
@@ -27,12 +24,16 @@ export function TestimonioCard({ testimonio }: TestimonioCardProps) {
                 flexShrink: 0,
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                 '&:hover': {
-                    boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.12)}`,
+                    boxShadow: `0 8px 24px ${alpha('#000000', 0.12)}`,
                 },
             }}
         >
             {/* Estrellas */}
-            <Box sx={{ display: 'flex', gap: 0.5 }}>
+            <Box
+                sx={{ display: 'flex', gap: 0.5 }}
+                role="img"
+                aria-label={`${testimonio.calificacion} de 5 estrellas`}
+            >
                 {Array.from({ length: testimonio.calificacion }).map((_, i) => (
                     <StarIcon key={i} sx={{fontSize: 32, color: '#F5A623',}}/>
                 ))}
@@ -51,8 +52,8 @@ export function TestimonioCard({ testimonio }: TestimonioCardProps) {
                         height: 36,
                         fontSize: 14,
                         fontWeight: 700,
-                        backgroundColor: theme.palette.text.primary,
-                        color: theme.palette.marca.fondo1,
+                        backgroundColor: paletaMarca.textoPrincipal,
+                        color: paletaMarca.fondo1,
                     }}
                 >
                     {testimonio.avatar}

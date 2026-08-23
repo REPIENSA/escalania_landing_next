@@ -1,17 +1,13 @@
-'use client';
-
 import { Box, Container, Typography, Grid } from '@mui/material';
-import { useTheme, alpha } from '@mui/material/styles';
+import { paletaMarca } from '@/ui/theme/colores';
 import { TestimonioCard } from './TestimonioCard';
 import { TESTIMONIOS } from './Testimonios.data';
 import { CarruselPasos } from './CarruselPasos';
 
 
 export default function Testimonios() {
-    const theme = useTheme();
-
     return (
-        <Box sx={{px:{ xs: 1, md:4, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, background: theme.palette.marca.fondo2 }}>
+        <Box sx={{px:{ xs: 1, md:4, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, background: paletaMarca.fondo2 }}>
             <Container maxWidth="xl">
 
 
@@ -36,8 +32,8 @@ export default function Testimonios() {
                         </Typography>
 
                         <Typography variant="h5"  sx={{ mt:2}}>
-                            Negocios reales que ya automatizaron su atencións.
-                        </Typography>                    
+                            Negocios reales que ya automatizaron su atención.
+                        </Typography>
                     </Grid>
                 </Grid>
 

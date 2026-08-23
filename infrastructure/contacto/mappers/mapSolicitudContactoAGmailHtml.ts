@@ -21,7 +21,6 @@ export function mapSolicitudContactoAGmailHtml(
             <p><strong>Nombre y apellidos:</strong> ${escaparHtml(solicitudContacto.nombreApellidos.value)}</p>
             <p><strong>Correo:</strong> ${escaparHtml(solicitudContacto.correo.value)}</p>
             <p><strong>WhatsApp:</strong> ${escaparHtml(solicitudContacto.whatsapp.value)}</p>
-            <p><strong>Rubro de la empresa:</strong> ${escaparHtml(solicitudContacto.rubroEmpresa.value)}</p>
         </div>
     `;
 }
@@ -35,6 +34,5 @@ export function mapSolicitudContactoAGmailText(
         `Nombre y apellidos: ${solicitudContacto.nombreApellidos.value}`,
         `Correo: ${solicitudContacto.correo.value}`,
         `WhatsApp: ${solicitudContacto.whatsapp.value}`,
-        `Rubro de la empresa: ${solicitudContacto.rubroEmpresa.value}`,
     ].join("\n");
 }

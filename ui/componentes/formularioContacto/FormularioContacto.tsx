@@ -3,13 +3,14 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
 
 import { CampoTextoFormulario } from "./CampoTextoFormulario";
+import { CampoTelefonoFormulario } from "./CampoTelefonoFormulario";
 import { BotonEnviarFormulario } from "./BotonEnviarFormulario";
+import { COLOR_ERROR_CAMPO } from "./estilosCampo";
+import { describirDigitos, obtenerPaisPorIso } from "./codigosPaisLatam.data";
 import {
     FormularioContactoState,
     formularioContactoInicial,
@@ -19,7 +20,6 @@ interface ErroresFormularioContacto {
     nombreApellidos: string;
     correo: string;
     whatsapp: string;
-    rubroEmpresa: string;
     formulario: string;
 }
 
@@ -27,12 +27,19 @@ const erroresIniciales: ErroresFormularioContacto = {
     nombreApellidos: "",
     correo: "",
     whatsapp: "",
-    rubroEmpresa: "",
     formulario: "",
 };
 
-export function FormularioContacto() {
-    const theme = useTheme();
+const TEXTO_BOTON_POR_DEFECTO = "Enviar mensaje";
+
+interface PropsFormularioContacto {
+    /** Texto del botón de envío. Cada landing usa su propia llamada a la acción. */
+    boton?: string;
+}
+
+export function FormularioContacto({
+    boton = TEXTO_BOTON_POR_DEFECTO,
+}: PropsFormularioContacto = {}) {
     const router = useRouter();
 
     const [formulario, setFormulario] = useState<FormularioContactoState>(
@@ -41,6 +48,8 @@ export function FormularioContacto() {
     const [errores, setErrores] =
         useState<ErroresFormularioContacto>(erroresIniciales);
     const [loading, setLoading] = useState(false);
+
+    const pais = obtenerPaisPorIso(formulario.codigoPais);
 
     const actualizarCampo = (
         campo: keyof FormularioContactoState,
@@ -86,24 +95,12 @@ export function FormularioContacto() {
         if (campo === "whatsapp") {
             if (!valor) return "El WhatsApp es obligatorio.";
 
-            const regexWhatsapp = /^[+\d\s\-()]+$/;
-            if (!regexWhatsapp.test(valor)) {
-                return "Ingresa un número de WhatsApp válido.";
+            // El campo solo deja escribir dígitos, así que basta con comprobar
+            // que el largo sea uno de los válidos para el país elegido.
+            if (!pais.digitos.includes(valor.length)) {
+                return `El número de ${pais.nombre} debe tener ${describirDigitos(pais.digitos)}.`;
             }
 
-            const soloDigitos = valor.replace(/\D/g, "");
-            if (soloDigitos.length < 7) {
-                return "El WhatsApp debe tener al menos 7 dígitos.";
-            }
-
-            return "";
-        }
-
-        if (campo === "rubroEmpresa") {
-            if (!valor) return "El rubro de la empresa es obligatorio.";
-            if (valor.length < 2) {
-                return "El rubro de la empresa debe tener al menos 2 caracteres.";
-            }
             return "";
         }
 
@@ -118,10 +115,6 @@ export function FormularioContacto() {
             ),
             correo: validarCampo("correo", formulario.correo),
             whatsapp: validarCampo("whatsapp", formulario.whatsapp),
-            rubroEmpresa: validarCampo(
-                "rubroEmpresa",
-                formulario.rubroEmpresa
-            ),
             formulario: "",
         };
 
@@ -149,7 +142,11 @@ export function FormularioContacto() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formulario),
+                body: JSON.stringify({
+                    nombreApellidos: formulario.nombreApellidos,
+                    correo: formulario.correo,
+                    whatsapp: `${pais.codigo} ${formulario.whatsapp}`,
+                }),
             });
 
             const data = await response.json();
@@ -176,92 +173,65 @@ export function FormularioContacto() {
     };
 
     return (
-        <Card
-            sx={{
-                borderRadius: { xs: "2px", md: "20px" },
-                backgroundColor: theme.palette.marca.secundario,
-                boxShadow: "none",
-            }}
-        >
-            <Box
-                sx={{
-                    px: { xs: 2.5, md: 4 },
-                    py: { xs: 3, md: 4 },
-                }}
-            >
-                <Typography variant="h3" color='primary' sx={{ mb: 1}}>
-                    Agenda una demostración
-                </Typography>
+        <Box component="form" onSubmit={handleSubmit} noValidate>
+            <Stack spacing={2}>
+                <CampoTextoFormulario
+                    label="Nombre y apellidos"
+                    value={formulario.nombreApellidos}
+                    onChange={(value) =>
+                        actualizarCampo("nombreApellidos", value)
+                    }
+                    autoComplete="name"
+                    error={Boolean(errores.nombreApellidos)}
+                    helperText={errores.nombreApellidos}
+                />
 
-                <Typography variant="body1" sx={{ mb: 4}}>
-                    Déjanos tus datos y te contactaremos para mostrarte cómo un
-                    agente de IA puede atender a tus clientes por WhatsApp,
-                    Instagram y Facebook.
-                </Typography>
+                <CampoTextoFormulario
+                    label="Correo"
+                    type="email"
+                    value={formulario.correo}
+                    onChange={(value) =>
+                        actualizarCampo("correo", value)
+                    }
+                    autoComplete="email"
+                    error={Boolean(errores.correo)}
+                    helperText={errores.correo}
+                />
 
-                <Box component="form" onSubmit={handleSubmit} noValidate>
-                    <Stack spacing={2}>
-                        <CampoTextoFormulario
-                            label="Nombre y apellidos"
-                            value={formulario.nombreApellidos}
-                            onChange={(value) =>
-                                actualizarCampo("nombreApellidos", value)
-                            }
-                            autoComplete="name"
-                            error={Boolean(errores.nombreApellidos)}
-                            helperText={errores.nombreApellidos}
-                        />
+                <CampoTelefonoFormulario
+                    label="WhatsApp"
+                    codigoPais={formulario.codigoPais}
+                    onCodigoPaisChange={(iso) => {
+                        actualizarCampo("codigoPais", iso);
+                        setErrores((prev) => ({
+                            ...prev,
+                            whatsapp: "",
+                            formulario: "",
+                        }));
+                    }}
+                    value={formulario.whatsapp}
+                    onChange={(value) =>
+                        actualizarCampo("whatsapp", value)
+                    }
+                    error={Boolean(errores.whatsapp)}
+                    helperText={errores.whatsapp}
+                />
 
-                        <CampoTextoFormulario
-                            label="Correo"
-                            type="email"
-                            value={formulario.correo}
-                            onChange={(value) =>
-                                actualizarCampo("correo", value)
-                            }
-                            autoComplete="email"
-                            error={Boolean(errores.correo)}
-                            helperText={errores.correo}
-                        />
+                <BotonEnviarFormulario loading={loading} texto={boton} />
 
-                        <CampoTextoFormulario
-                            label="WhatsApp"
-                            value={formulario.whatsapp}
-                            onChange={(value) =>
-                                actualizarCampo("whatsapp", value)
-                            }
-                            autoComplete="tel"
-                            error={Boolean(errores.whatsapp)}
-                            helperText={errores.whatsapp}
-                        />
-
-                        <CampoTextoFormulario
-                            label="Rubro de la empresa"
-                            value={formulario.rubroEmpresa}
-                            onChange={(value) =>
-                                actualizarCampo("rubroEmpresa", value)
-                            }
-                            error={Boolean(errores.rubroEmpresa)}
-                            helperText={errores.rubroEmpresa}
-                        />
-
-                        <BotonEnviarFormulario loading={loading} />
-
-                        {errores.formulario && (
-                            <Typography
-                                variant="body2"
-                                sx={{
-                                    color: "#b3261e",
-                                    mt: -0.5,
-                                    px: 0.5,
-                                }}
-                            >
-                                {errores.formulario}
-                            </Typography>
-                        )}
-                    </Stack>
-                </Box>
-            </Box>
-        </Card>
+                {errores.formulario && (
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: COLOR_ERROR_CAMPO,
+                            mt: -0.5,
+                            px: 0.5,
+                        }}
+                    >
+                        {errores.formulario}
+                    </Typography>
+                )}
+            </Stack>
+        </Box>
     );
 }

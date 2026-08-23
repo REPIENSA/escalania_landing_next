@@ -1,5 +1,5 @@
 
-import { Box, Container, Grid} from '@mui/material';
+import { Box } from '@mui/material';
 
 export const metadata = {
     title: 'Escalania | Transformamos la creatividad infantil ',
@@ -14,7 +14,7 @@ import Clientes from './component/clientes/Clientes';
 import TopHeader from './component/header/TopHeader';
 
 export default async function HomePage() {
-    
+
 
     return (
         <Box>

@@ -1,26 +1,20 @@
-'use client';
 import { Box } from '@mui/material';
 import { CardCambiante } from '@/ui/componentes/cards/CardCambiante';
-import { useTheme } from "@mui/material/styles";
+import { paletaMarca } from '@/ui/theme/colores';
 import Image from 'next/image';
 
 export default function Imagenes() {
-    const theme = useTheme();
-    
     return (
-        <CardCambiante 
-            colorBase={theme.palette.marca.principal} 
-            colorVisible={theme.palette.text.primary}
+        <CardCambiante
+            colorBase={paletaMarca.principal}
+            colorVisible={paletaMarca.textoPrincipal}
         >
             <Box
                 sx={{
                     position: 'relative',
                     width: '100%',
                     height: '100%',
-                    //minHeight: 420,
-                    [theme.breakpoints.up("xs")]: {minHeight:200},
-                    [theme.breakpoints.up("md")]: {minHeight:300},
-                    [theme.breakpoints.up("lg")]: {minHeight:420},
+                    minHeight: { xs: 200, md: 300, lg: 420 },
                 }}
             >
                 {/* Imagen superior izquierda */}
@@ -35,7 +29,7 @@ export default function Imagenes() {
                         zIndex: 1,
                     }}
                 >
-                    <Image src="/imagenes/chat-whatsapp.svg" alt="Imagen 1" fill/>
+                    <Image src="/imagenes/chat-whatsapp.svg" alt="Conversación de WhatsApp atendida por el agente" fill/>
                 </Box>
 
 
@@ -51,9 +45,9 @@ export default function Imagenes() {
                         aspectRatio: '5 / 4',
                     }}
                 >
-                    <Image src="/imagenes/chat-messenger.svg" alt="Imagen 2" fill />
+                    <Image src="/imagenes/chat-messenger.svg" alt="Conversación de Messenger atendida por el agente" fill />
                 </Box>
             </Box>
-        </CardCambiante>              
+        </CardCambiante>
     );
 }

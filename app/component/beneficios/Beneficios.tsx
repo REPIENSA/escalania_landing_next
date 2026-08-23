@@ -1,17 +1,19 @@
-'use client';
-import { Box, Container, Grid, Typography, Icon } from '@mui/material';
-import { CardCambiante } from '@/ui/componentes/cards/CardCambiante';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import { Beneficio } from '@/ui/componentes/beneficio/Beneficio';
-import { useTheme, alpha } from "@mui/material/styles";
+import { paletaMarca } from '@/ui/theme/colores';
+
+import ChatIcon from '@mui/icons-material/Chat';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import AlarmIcon from '@mui/icons-material/Alarm';
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 
 export default function Beneficios() {
-
-    const theme = useTheme();
-    
     return (
-        <Box sx={{px:{ xs: 1, md:4, lg: 12}, py:{ xs: 6, md:8, lg: 16}, background: theme.palette.marca.fondo2 }}>
+        <Box sx={{px:{ xs: 1, md:4, lg: 12}, py:{ xs: 6, md:8, lg: 16}, background: paletaMarca.fondo2 }}>
             <Container maxWidth="xl">
-               
+
                <Grid container spacing={6} sx={{ alignItems:{ xs: 'left', md: 'center' }, justifyContent: "center", mb:{ xs: 0, md:8, lg:12} }}>
                     <Grid size={{ xs: 12, md:10, lg:7}} sx={{textAlign:{ xs: 'left', md: 'center'}}}>
                         <Typography variant="h2"
@@ -34,21 +36,19 @@ export default function Beneficios() {
 
                         <Typography variant="h5"  sx={{ mt:2}}>
                             Deja de perder clientes por responder tarde. Con nuestra IA, tu negocio trabaja solo, las 24 horas del día.
-                        </Typography>                    
+                        </Typography>
                     </Grid>
                 </Grid>
 
                 <Grid container spacing={4} sx={{ alignItems: "stretch" }}>
-                    
+
                     <Grid size={{ xs: 12, md: 4, lg: 4 }} sx={{ display: 'flex', justifyContent: 'center',alignItems: 'center',}} >
-                        <Icon sx={{ fontSize: 120, color: theme.palette.marca.acento }}>
-                            chat
-                        </Icon>
+                        <ChatIcon sx={{ fontSize: 120, color: paletaMarca.acento }} />
                     </Grid>
 
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
                         <Beneficio
-                            icono='store'
+                            icono={StorefrontIcon}
                             titulo='Atención inmediata'
                             subTitulo='Responde al instante y evita que una oportunidad se enfríe por esperar demasiado.'
                         />
@@ -56,7 +56,7 @@ export default function Beneficios() {
 
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
                         <Beneficio
-                            icono='shopping_cart_checkout'
+                            icono={ShoppingCartCheckoutIcon}
                             titulo='Mas ventas'
                             subTitulo='Cada mensaje se convierte en una oportunidad para acercar al cliente a la compra.'
                         />
@@ -64,7 +64,7 @@ export default function Beneficios() {
 
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
                         <Beneficio
-                            icono='event_available'
+                            icono={EventAvailableIcon}
                             titulo='Atención 24/7'
                             subTitulo='Tu negocio sigue atendiendo, captando y respondiendo incluso fuera de horario.'
                         />
@@ -72,7 +72,7 @@ export default function Beneficios() {
 
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
                         <Beneficio
-                            icono='alarm'
+                            icono={AlarmIcon}
                             titulo='Ahorro de tiempo'
                             subTitulo='La IA resuelve lo repetitivo para que tu equipo se enfoque en lo importante.'
                         />
@@ -80,7 +80,7 @@ export default function Beneficios() {
 
                     <Grid size={{ xs: 12, md:4, lg:4}} sx={{ display: "flex" }}>
                         <Beneficio
-                            icono='display_settings'
+                            icono={DisplaySettingsIcon}
                             titulo='Control'
                             subTitulo='Supervisa cada conversación y mantén el control de la experiencia de tus clientes.'
                         />

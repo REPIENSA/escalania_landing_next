@@ -4,5 +4,4 @@ export interface EnviarFormularioContactoEntradaDto {
     nombreApellidos: string;
     correo: string;
     whatsapp: string;
-    rubroEmpresa: string;
 }

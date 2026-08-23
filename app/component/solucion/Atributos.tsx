@@ -1,24 +1,21 @@
-'use client';
-import { Box, Card, Container, Grid, Icon, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack, Typography} from '@mui/material';
-import { CardCambiante } from '@/ui/componentes/cards/CardCambiante';
-import { Beneficio } from '@/ui/componentes/beneficio/Beneficio';
-import { useTheme, alpha } from "@mui/material/styles";
-
-
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import { Box, List, ListItem, ListItemIcon, Typography } from '@mui/material';
 import ForwardIcon from '@mui/icons-material/Forward';
 
-export default function Atributos() {
+const CAPACIDADES = [
+    'Responder preguntas frecuentes.',
+    'Dar información sobre tus servicios.',
+    'Resolver dudas de clientes potenciales.',
+    'Agendar citas.',
+    'Guiar conversaciones hacia la venta.',
+    'Mantener una atención rápida y profesional.',
+];
 
-    const theme = useTheme();
-    
+export default function Atributos() {
     return (
         <Box>
 
             <Box sx={{ mb: 3 }}>
-                <Typography variant="h3"
+                <Typography variant="h3" component="h2"
                     sx={{
                         display: "inline",
                         backgroundImage: "linear-gradient(currentColor, currentColor)",
@@ -35,7 +32,7 @@ export default function Atributos() {
                     }}
                 >
                     Tu asistente comercial inteligente siempre activo
-                </Typography>   
+                </Typography>
             </Box>
 
             <Box sx={{ mb: 2 }}>
@@ -48,68 +45,18 @@ export default function Atributos() {
             </Box>
 
             <Box sx={{ width: '100%'}}>
-                <nav aria-label="main mailbox folders">
-                    <List>
-                        
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <ForwardIcon fontSize="medium"/>
-                                </ListItemIcon>
-                                <Typography>Responder preguntas frecuentes.</Typography>
-                            </ListItemButton>
-                        </ListItem>
-
-                        <ListItem disablePadding>
-                            <ListItemButton>
+                <List>
+                    {CAPACIDADES.map((capacidad) => (
+                        <ListItem key={capacidad} disablePadding sx={{ py: 1 }}>
                             <ListItemIcon>
                                 <ForwardIcon fontSize="medium"/>
                             </ListItemIcon>
-                            <Typography>Dar información sobre tus servicios.</Typography>
-                            </ListItemButton>
+                            <Typography>{capacidad}</Typography>
                         </ListItem>
-
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <ForwardIcon fontSize="medium"/>
-                                </ListItemIcon>
-                                <Typography>Resolver dudas de clientes potenciales.</Typography>
-                            </ListItemButton>
-                        </ListItem>
-
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                            <ListItemIcon>
-                                <ForwardIcon fontSize="medium"/>
-                            </ListItemIcon>
-                            <Typography>Agendar citas.</Typography>
-                            </ListItemButton>
-                        </ListItem>
-
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                            <ListItemIcon>
-                                <ForwardIcon fontSize="medium"/>
-                            </ListItemIcon>
-                            <Typography>Guiar conversaciones hacia la venta.</Typography>
-                            </ListItemButton>
-                        </ListItem>
-
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                            <ListItemIcon>
-                                <ForwardIcon fontSize="medium"/>
-                            </ListItemIcon>
-                            <Typography>Mantener una atención rápida y profesional.</Typography>
-                            </ListItemButton>
-                        </ListItem>
-
-                    </List>
-                </nav>
-
+                    ))}
+                </List>
             </Box>
-            
+
         </Box>
     );
 }
