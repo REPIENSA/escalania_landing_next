@@ -155,8 +155,8 @@ export default function Hero1_2() {
             <Box
                 sx={{
                     position: 'relative',
-                    width: { xs: 290, sm: 330 },
-                    height: { xs: 540, sm: 603 },
+                    width: { xs: 324, sm: 324 },
+                    height: { xs: 576, sm: 576 },
                     flexShrink: 0,
                 }}
             >

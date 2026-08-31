@@ -11,10 +11,7 @@ import { CampoTelefonoFormulario } from "./CampoTelefonoFormulario";
 import { BotonEnviarFormulario } from "./BotonEnviarFormulario";
 import { COLOR_ERROR_CAMPO } from "./estilosCampo";
 import { describirDigitos, obtenerPaisPorIso } from "./codigosPaisLatam.data";
-import {
-    FormularioContactoState,
-    formularioContactoInicial,
-} from "./FormularioContactoState";
+import {FormularioContactoState, formularioContactoInicial,} from "./FormularioContactoState";
 
 interface ErroresFormularioContacto {
     nombreApellidos: string;

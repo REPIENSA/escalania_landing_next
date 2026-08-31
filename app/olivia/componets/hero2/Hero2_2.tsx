@@ -1,13 +1,14 @@
 import { FormularioContacto } from '@/ui/componentes/formularioContacto/FormularioContacto';
 import { Box, Card, Typography } from '@mui/material';
 import { Titulo } from '@/ui/componentes/Titulo';
+import { paletaMarca } from '@/ui/theme/colores';
 
 export default function Hero2_2() {
     return (
         <Card
             sx={{
                 borderRadius: 8 ,
-                //backgroundColor: theme.palette.marca.secundario,
+                //backgroundColor: paletaMarca.fondo2,
                 boxShadow: "none",
                 p: { xs: 2.5, md: 4 },
             }}
@@ -18,8 +19,8 @@ export default function Hero2_2() {
             </Box>
 
             <Box sx={{ mb: 4 }}>
-                <Typography component="p">
-                    Apenas completes el formulario accederás a un botón para escribirle a Emilia por WhatsApp. Tú decides cuándo. Si se te pasa, ella te escribe.
+                <Typography variant="h5" component="h5">
+                    Completa el formulario para escribirle a Emilia por WhatsApp.
                 </Typography>
 
             </Box>

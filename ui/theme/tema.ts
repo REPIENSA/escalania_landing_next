@@ -37,7 +37,7 @@ export const tema = createTheme({
             main: paletaMarca.principal,
         },
         secondary: {
-         main: paletaMarca.secundario,
+            main: paletaMarca.secundario,
         },
         text: {
             primary: paletaMarca.textoPrincipal,
@@ -67,7 +67,7 @@ export const tema = createTheme({
 
 
 
-     components: {
+    components: {
         MuiButton: {
             defaultProps: {
                 disableElevation: true,      // sin box-shadow por defecto de MUI
@@ -79,7 +79,7 @@ export const tema = createTheme({
                     textTransform: 'none',
                     fontWeight: 500,
                     fontSize: '0.95rem',
-                    minHeight: 48,
+                    minHeight: 54,
                     paddingInline: '1.75rem',
                     transition: 'transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease',
 
@@ -98,14 +98,13 @@ export const tema = createTheme({
 
                 // Variante CONTAINED — botón primario sólido
                 contained: ({ theme }) => ({
-                    backgroundColor: theme.palette.marca.principal,
+                    backgroundColor: theme.palette.marca.secundario,
                     color: '#fff',
                     boxShadow: 'none',
-
+                    fontSize: '1.1rem',
                     '@media (hover: hover)': {
                         '&:hover': {
-                            backgroundColor: alpha(theme.palette.marca.principal, 0.8),
-                            //boxShadow: `0 8px 20px ${alpha(theme.palette.marca.principal, 0.35)}`,
+                            backgroundColor: theme.palette.marca.principal,
                         },
                     },
                     '&.Mui-disabled': {

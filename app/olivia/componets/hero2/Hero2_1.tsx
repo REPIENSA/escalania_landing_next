@@ -36,17 +36,20 @@ export default function Hero2_1() {
         <Box>
 
             <Box sx={{ mb:2 }}>
-                <Titulo titulo="Pruébalo gratis. Después decides." variant="h3"/>
+                <Titulo titulo="Pruébalo primero y decides después" variant="h3"/>
             </Box>
 
 
             <Box sx={{ mb: 4 }}>
-                <Typography component="p">
+                <Typography variant="h5" component="h5">
                     Déjanos tus datos y podrás hablar con{' '}
                     <Box component="strong" sx={{ color: paletaMarca.principal }}>
                         Emilia
                     </Box>
-                    , nuestra agente de IA experta en explicar todo lo que Olivia puede hacer por tu negocio.
+                    , nuestra agente experta en explicar todo lo que{' '}
+                    <Box component="strong" sx={{ color: paletaMarca.principal }}>
+                        Olivia 
+                    </Box>{' '}puede hacer por tu negocio.
                 </Typography>
             </Box>
 

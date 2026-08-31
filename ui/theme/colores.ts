@@ -8,5 +8,5 @@ export const paletaMarca = {
 
     fondo1: '#2a003d',
     fondo2: '#fbe3c4',
-    fondo3: '#fbe3c437',
+    fondo3: '#f7f0e8',
 };

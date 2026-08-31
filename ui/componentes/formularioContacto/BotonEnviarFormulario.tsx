@@ -20,9 +20,6 @@ export function BotonEnviarFormulario({
             // Mientras carga, el texto se reemplaza por el spinner: sin esto el
             // botón se queda sin nombre para un lector de pantalla.
             aria-label={texto}
-            sx={{
-                mt: 1,
-            }}
         >
             {loading ? (
                 <CircularProgress size={24} sx={{ color: "#fff" }} />
