@@ -38,14 +38,14 @@ interface MensajeChat {
 
 const GUION: MensajeChat[] = [
     { de: 'clienta', texto: 'Hola, ¿hacen limpieza facial profunda?', hora: '11:01 p.m.' },
-    { de: 'olivia', texto: '¡Hola! Sí 😊 Dura una hora y cuesta S/ 120. ¿Es tu primera vez con nosotros?', hora: '11:01 p.m.' },
+    { de: 'olivia', texto: '¡Hola! Sí 😊 Dura 1:30 min y cuesta S/ 120. ¿Es tu primera vez con nosotros?', hora: '11:01 p.m.' },
     { de: 'clienta', texto: 'Sí. Tengo la piel súper sensible, no sé si me caiga bien', hora: '11:02 p.m.' },
     { de: 'olivia', texto: 'Con piel sensible trabajamos una versión sin extracción manual. Queda igual de limpia y no te deja roja al día siguiente.', hora: '11:02 p.m.' },
-    { de: 'olivia', texto: '¿Te acomoda mañana en la mañana o en la tarde?', hora: '11:02 p.m.' },
-    { de: 'clienta', texto: 'Mañana 4pm', hora: '11:03 p.m.' },
-    { de: 'olivia', texto: 'Listo, te reservo mañana a las 4:00 p.m. Para dejarla confirmada te pido S/ 30 de adelanto por Yape al 987 654 321 📲', hora: '11:03 p.m.' },
-    { de: 'clienta', texto: 'Ya, ahí te yapeé', hora: '11:04 p.m.' },
-    { de: 'olivia', texto: '¡Recibido! ✅ Cita confirmada mañana 4:00 p.m. Te mando un recordatorio 2 horas antes.', hora: '11:04 p.m.' },
+    { de: 'olivia', texto: '¿Estaría bien mañana?', hora: '11:02 p.m.' },
+    { de: 'clienta', texto: 'Sí, Mañana 4pm', hora: '11:03 p.m.' },
+    { de: 'olivia', texto: 'Listo, te reservo mañana a las 4:00 p.m. Para reservar esa necesario S/ 30 de adelanto por Yape al 987 654 321 📲', hora: '11:03 p.m.' },
+    { de: 'clienta', texto: 'Ya esta el yape', hora: '11:04 p.m.' },
+    { de: 'olivia', texto: '¡Recibido! ✅ Cita confirmada mañana 4:00 p.m.', hora: '11:04 p.m.' },
 ];
 
 const PAUSA_ANTES_DE_LA_CLIENTA = 900;
@@ -302,8 +302,8 @@ export default function Hero1_2() {
 
                             {mensajes.map((mensaje, indice) => {
                                 const esDeOlivia = mensaje.de === 'olivia';
-                                // El pico solo va en el primero de cada tanda, como en WhatsApp.
-                                const abrePico =
+                                // Marca el primero de cada tanda: solo separa visualmente los turnos.
+                                const abreTanda =
                                     indice === 0 || GUION[indice - 1].de !== mensaje.de;
 
                                 return (
@@ -313,18 +313,12 @@ export default function Hero1_2() {
                                             position: 'relative',
                                             alignSelf: esDeOlivia ? 'flex-start' : 'flex-end',
                                             maxWidth: '80%',
-                                            mt: abrePico && indice !== 0 ? 0.75 : 0,
-                                            ml: esDeOlivia && abrePico ? '8px' : 0,
-                                            mr: !esDeOlivia && abrePico ? '8px' : 0,
+                                            mt: abreTanda && indice !== 0 ? 0.75 : 0,
                                             backgroundColor: esDeOlivia
                                                 ? WHATSAPP.burbujaOlivia
                                                 : WHATSAPP.burbujaClienta,
                                             color: WHATSAPP.texto,
-                                            borderRadius: abrePico
-                                                ? esDeOlivia
-                                                    ? '0 8px 8px 8px'
-                                                    : '8px 0 8px 8px'
-                                                : '8px',
+                                            borderRadius: '8px',
                                             px: 1.25,
                                             pt: 0.75,
                                             pb: 0.5,
@@ -339,20 +333,6 @@ export default function Hero1_2() {
                                                 },
                                                 to: { opacity: 1, transform: 'translateY(0) scale(1)' },
                                             },
-                                            // Pico de la burbuja
-                                            ...(abrePico && {
-                                                '&::before': {
-                                                    content: '""',
-                                                    position: 'absolute',
-                                                    top: 0,
-                                                    width: 0,
-                                                    height: 0,
-                                                    borderTop: `8px solid ${esDeOlivia ? WHATSAPP.burbujaOlivia : WHATSAPP.burbujaClienta}`,
-                                                    ...(esDeOlivia
-                                                        ? { left: -8, borderLeft: '8px solid transparent' }
-                                                        : { right: -8, borderRight: '8px solid transparent' }),
-                                                },
-                                            }),
                                         }}
                                     >
                                         <Typography

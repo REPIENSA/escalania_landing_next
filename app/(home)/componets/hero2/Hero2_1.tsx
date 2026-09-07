@@ -15,11 +15,11 @@ const PASOS: Paso[] = [
     },
     {
         numero: '2',
-        descripcion: 'Conversas con Emilia por WhatsApp y pregúntale todo sobre Olivia.',
+        descripcion: 'Conversas por WhatsApp y pregúnta todo sobre Olivia.',
     },
     {
         numero: '3',
-        descripcion: 'Con Emilia podrás agendar una reunión online con una persona de nuestro equipo.',
+        descripcion: 'Podrás agendar una reunión online con una persona de nuestro equipo.',
     },
     {
         numero: '4',
@@ -36,7 +36,7 @@ export default function Hero2_1() {
         <Box>
 
             <Box sx={{ mb:2 }}>
-                <Titulo titulo="Pruébalo primero y decides después" variant="h3"/>
+                <Titulo titulo="Reserva una cita con nosotros" variant="h3"/>
             </Box>
 
 

@@ -11,14 +11,12 @@ import Solucion from './component/solucion/Solucion';
 import Header from './component/header/Header';
 import Testimonios from './component/testimonios/Testimonios';
 import Clientes from './component/clientes/Clientes';
-import TopHeader from './component/header/TopHeader';
 
 export default async function HomePage() {
 
 
     return (
         <Box>
-            <TopHeader/>
             <Header/>
             <Solucion/>
             <Beneficios/>
