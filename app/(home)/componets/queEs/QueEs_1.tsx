@@ -9,7 +9,7 @@ export default function QueEs_1() {
         <Box>
 
             <Box sx={{ mb:2 }}>
-                <Titulo titulo="¿Qué es Olivia?" variant="h3"/>
+                <Titulo titulo="¿Qué es Olivia?" variant="h2"/>
             </Box>
 
 

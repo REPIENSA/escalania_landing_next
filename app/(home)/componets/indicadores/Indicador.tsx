@@ -117,7 +117,7 @@ export function Indicador({ icono: Icono, prefijo, valor, sufijo, titulo }: Prop
                     '&:last-child': { pb: { xs: 5 } },
                 }}
             >
-                <Icono sx={{ fontSize: 64, color: paletaMarca.textoSecundario }} />
+                <Icono sx={{ fontSize: 50 }} />
 
                 <Typography
                     variant="h3"

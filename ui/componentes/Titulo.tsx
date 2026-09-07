@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import Typography from '@mui/material/Typography';
 import type { SxProps, Theme } from '@mui/material/styles';
 
@@ -5,7 +6,8 @@ type VarianteTitulo = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 type EtiquetaTitulo = VarianteTitulo | 'p' | 'span';
 
 interface PropsTitulo {
-    titulo: string;
+    /** Acepta JSX para poder resaltar una palabra suelta dentro del título. */
+    titulo: ReactNode;
     /** Tamaño visual, según la tipografía del tema. */
     variant?: VarianteTitulo;
     /** Etiqueta HTML. Por defecto, la que corresponde al `variant`. */

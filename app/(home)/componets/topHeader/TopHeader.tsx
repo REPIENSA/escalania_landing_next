@@ -4,7 +4,7 @@ import { paletaMarca } from '@/ui/theme/colores';
 
 export default function TopHeader() {
     return (
-        <Box sx={{px: { xs: 2, md: 4, lg: 12 }, py: { xs: 1, md: 2, lg: 3 }, borderBottom: `1px solid ${paletaMarca.acento}`, background: paletaMarca.fondo1, }}>
+        <Box sx={{px: { xs: 2, md: 4, lg: 12 }, py: { xs: 1, md: 2, lg: 3 }, borderBottom: `1px solid ${paletaMarca.textoSecundario}`, background: paletaMarca.fondo1, }}>
             <Container maxWidth="xl">
                 <Box
                     sx={{
@@ -20,7 +20,7 @@ export default function TopHeader() {
                         sx={{
                             position: 'relative',
                             //width: { xs: 150, md: 100 },
-                            height: { xs: 24, md: 32 },
+                            height: { xs: 24, md: 24 },
                             flexShrink: 0,
                         }}
                     >
@@ -33,12 +33,7 @@ export default function TopHeader() {
                         />
                     </Box>
 
-                    <Button
-                        href="#contacto"
-                        sx={{ minHeight: { xs: 38, md: 46 }, justifySelf: { xs: 'end', md: 'center' } }}
-                    >
-                        Agendar una demo
-                    </Button>
+
                 </Box>
             </Container>
         </Box>

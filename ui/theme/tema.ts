@@ -99,12 +99,15 @@ export const tema = createTheme({
                 // Variante CONTAINED — botón primario sólido
                 contained: ({ theme }) => ({
                     backgroundColor: theme.palette.marca.secundario,
-                    color: '#fff',
+                    // Sobre el verde el texto va oscuro; al pasar el cursor el
+                    // fondo se vuelve morado y el texto pasa a blanco.
+                    color: theme.palette.text.primary,
                     boxShadow: 'none',
                     fontSize: '1.1rem',
                     '@media (hover: hover)': {
                         '&:hover': {
                             backgroundColor: theme.palette.marca.principal,
+                            color: '#fff',
                         },
                     },
                     '&.Mui-disabled': {

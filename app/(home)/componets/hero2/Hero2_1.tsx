@@ -36,7 +36,10 @@ export default function Hero2_1() {
         <Box>
 
             <Box sx={{ mb:2 }}>
-                <Titulo titulo="Reserva una cita con nosotros" variant="h3"/>
+                <Titulo
+                    variant="h2"
+                    titulo="Reserva una cita"
+                />
             </Box>
 
 
@@ -74,7 +77,7 @@ export default function Hero2_1() {
                                 top: DIAMETRO_NUMERO,
                                 bottom: 0,
                                 width: 2,
-                                backgroundColor:paletaMarca.principal,
+                                backgroundColor:paletaMarca.textoPrincipal,
                             },
                         }}
                     >
@@ -88,7 +91,7 @@ export default function Hero2_1() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                backgroundColor: paletaMarca.principal,
+                                backgroundColor: paletaMarca.textoPrincipal,
                                 color: '#fff',
                                 fontWeight: 500,
                                 lineHeight: 1,

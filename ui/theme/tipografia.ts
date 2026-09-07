@@ -5,14 +5,14 @@ export const tipografia = {
     fontFamily: 'var(--font-geist-sans), Arial, sans-serif',
 
     h1:{
-        fontWeight: 600,
+        fontWeight: 700,
         [breakpoints.up('xs')]: { fontSize: '1.8rem'},
         [breakpoints.up('md')]: { fontSize: '2.5rem'},
         [breakpoints.up('lg')]: { fontSize: '3.5rem'},
     },
 
     h2:{
-        fontWeight: 600,
+        fontWeight: 700,
         lineHeight: 1.3,
         [breakpoints.up('xs')]: { fontSize: '1.8rem'},
         [breakpoints.up('md')]: { fontSize: '2.5rem'},
@@ -20,7 +20,7 @@ export const tipografia = {
     },
 
     h3: {
-        fontWeight: 600,
+        fontWeight: 700,
         lineHeight: 1.3,
         [breakpoints.up('xs')]: { fontSize: '1.8rem'},
         [breakpoints.up('md')]: { fontSize: '2.5rem'},

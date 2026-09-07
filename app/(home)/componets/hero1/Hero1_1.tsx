@@ -1,6 +1,7 @@
-import { Box, List, ListItem, ListItemIcon, Typography } from '@mui/material';
+import { Box, Button, List, ListItem, ListItemIcon, Typography } from '@mui/material';
 import { paletaMarca } from '@/ui/theme/colores';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const CAPACIDADES = [
     'Conversa con tus clientes.',
@@ -15,7 +16,11 @@ export default function Hero1_1() {
         <Box sx={{color:"#fff"}}>
             <Box sx={{ mb: 3 }}>
                 <Typography variant="h1" sx={{mb:1}} >
-                    Si te escriben 11:30 de la noche, Olivia les responde.
+                    Si te escriben 11:30 de la noche,{' '}
+                    <Box component="span" sx={{ color: paletaMarca.secundario }}>
+                        Olivia
+                    </Box>{' '}
+                    les responde.
                 </Typography>
             </Box>
 
@@ -23,7 +28,7 @@ export default function Hero1_1() {
                 <Typography variant="h5" component="h5">Olivia es nuestra agente de Inteligencia Artificial creada para centros médicos y estéticos.</Typography>
             </Box>
 
-            <Box>
+            <Box sx={{ mb: 2 }}>
                 <List>
                     {CAPACIDADES.map((capacidad) => (
                         <ListItem key={capacidad} disablePadding sx={{ py: 1 }}>
@@ -34,6 +39,15 @@ export default function Hero1_1() {
                         </ListItem>
                     ))}
                 </List>
+            </Box>
+
+            <Button href="#contacto" endIcon={<ArrowForwardIcon />}>
+                Agendar una demo
+            </Button>
+            <Box sx={{ mt: 4 }}>
+                <Typography component="p" sx={{ color: paletaMarca.textoSecundario }}>
+                    Desde S/ 490 mensuales, puedes acceder a todo el poder de Olivia, incluye hasta 1,500 conversaciones al mes con tus clientes.
+                </Typography>
             </Box>
         </Box>
     );

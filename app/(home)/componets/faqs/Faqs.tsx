@@ -7,9 +7,10 @@ export default function Faqs() {
     return (
         <Box sx={{ px:{ xs: 1, md:4, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, background: '#fff'}}>
             <Container maxWidth="md">
+                
                 <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 } }}>
-                    <Typography variant="h3" component="h2" sx={{ mb: 2 }}>
-                        Preguntas más frecuentes sobre Olivia
+                    <Typography variant="h3" component="h3" sx={{ mb: 2 }}>
+                        Preguntas frecuentes
                     </Typography>
 
                 </Box>

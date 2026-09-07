@@ -27,6 +27,18 @@ const WHATSAPP = {
     botonEnviar: '#00A884',
 };
 
+/** Cantos metálicos: más claros en el centro, como el aluminio pulido. */
+const BOTON_LATERAL_DEGRADADO =
+    'linear-gradient(180deg, #B8B8BF 0%, #E8E8EC 45%, #B8B8BF 100%)';
+
+/** Volumen y encendido, en las posiciones de un iPhone. */
+const BOTONES_LATERALES = [
+    { id: 'silencio', lado: 'left' as const, top: 96, alto: 28 },
+    { id: 'volumen-mas', lado: 'left' as const, top: 140, alto: 52 },
+    { id: 'volumen-menos', lado: 'left' as const, top: 204, alto: 52 },
+    { id: 'encendido', lado: 'right' as const, top: 164, alto: 80 },
+];
+
 /** Hora del sistema del celular. Coincide con el titular del Hero 1. */
 const HORA_SISTEMA = '11:01';
 
@@ -38,14 +50,17 @@ interface MensajeChat {
 
 const GUION: MensajeChat[] = [
     { de: 'clienta', texto: 'Hola, ¿hacen limpieza facial profunda?', hora: '11:01 p.m.' },
-    { de: 'olivia', texto: '¡Hola! Sí 😊 Dura 1:30 min y cuesta S/ 120. ¿Es tu primera vez con nosotros?', hora: '11:01 p.m.' },
+    { de: 'olivia', texto: '👋 Hola Stephanie, Sí hacemos limpiezas faciales profundas.', hora: '11:01 p.m.' },
+     { de: 'olivia', texto: '¿Es tu primera vez con nosotros?', hora: '11:01 p.m.' },
     { de: 'clienta', texto: 'Sí. Tengo la piel súper sensible, no sé si me caiga bien', hora: '11:02 p.m.' },
     { de: 'olivia', texto: 'Con piel sensible trabajamos una versión sin extracción manual. Queda igual de limpia y no te deja roja al día siguiente.', hora: '11:02 p.m.' },
-    { de: 'olivia', texto: '¿Estaría bien mañana?', hora: '11:02 p.m.' },
+    { de: 'olivia', texto: '¿Te gustarpía agendar para mañana?', hora: '11:02 p.m.' },
     { de: 'clienta', texto: 'Sí, Mañana 4pm', hora: '11:03 p.m.' },
-    { de: 'olivia', texto: 'Listo, te reservo mañana a las 4:00 p.m. Para reservar esa necesario S/ 30 de adelanto por Yape al 987 654 321 📲', hora: '11:03 p.m.' },
-    { de: 'clienta', texto: 'Ya esta el yape', hora: '11:04 p.m.' },
-    { de: 'olivia', texto: '¡Recibido! ✅ Cita confirmada mañana 4:00 p.m.', hora: '11:04 p.m.' },
+    { de: 'olivia', texto: '👍 Listo, te puedo reservar para mañana a las 4:00 p.m.', hora: '11:03 p.m.' },
+    { de: 'olivia', texto: 'Te comento, para reservar esa necesario un adelanto de S/ 30', hora: '11:03 p.m.' },
+        { de: 'olivia', texto: '📌 Puedes pagar por yape o plin al 987 654 321', hora: '11:03 p.m.' },
+    { de: 'clienta', texto: 'Ya está el pago por yape, te envio la captura', hora: '11:04 p.m.' },
+    { de: 'olivia', texto: '¡Recibido Stephanie! ✅ Cita confirmada mañana 4:00 p.m.', hora: '11:04 p.m.' },
 ];
 
 const PAUSA_ANTES_DE_LA_CLIENTA = 900;
@@ -160,16 +175,40 @@ export default function Hero1_2() {
                     flexShrink: 0,
                 }}
             >
+                {/* Botones laterales. Cuelgan del contenedor exterior y no del
+                    marco, que recorta a sus hijos con el borde redondeado. */}
+                {BOTONES_LATERALES.map((boton) => (
+                    <Box
+                        key={boton.id}
+                        aria-hidden="true"
+                        sx={{
+                            position: 'absolute',
+                            top: boton.top,
+                            height: boton.alto,
+                            width: 3,
+                            [boton.lado]: -3,
+                            borderRadius:
+                                boton.lado === 'left' ? '2px 0 0 2px' : '0 2px 2px 0',
+                            background: BOTON_LATERAL_DEGRADADO,
+                            zIndex: 1,
+                        }}
+                    />
+                ))}
+
                 {/* Marco del celular */}
                 <Box
                     sx={{
                         width: '100%',
                         height: '100%',
-                        backgroundColor: '#0B0B0C',
+                        background:
+                            'linear-gradient(145deg, #F2F2F4 0%, #C9C9CF 18%, #E4E4E8 50%, #BFBFC6 82%, #EDEDF0 100%)',
                         borderRadius: '46px',
-                        p: '10px',
+                        p: '5px',
                         boxShadow:
-                            '0 30px 60px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(255, 255, 255, 0.06) inset',
+                            '0 30px 60px rgba(0, 0, 0, 0.28),' +
+                            ' 0 0 0 1px rgba(0, 0, 0, 0.35),' +
+                            ' inset 0 0 0 1px rgba(0, 0, 0, 0.22),' +
+                            ' inset 0 1px 1px rgba(255, 255, 255, 0.55)',
                     }}
                 >
                     {/* Pantalla */}
@@ -178,7 +217,8 @@ export default function Hero1_2() {
                             position: 'relative',
                             width: '100%',
                             height: '100%',
-                            borderRadius: '38px',
+                            borderRadius: '41px',
+                            border: '2px solid #000',
                             overflow: 'hidden',
                             display: 'flex',
                             flexDirection: 'column',
@@ -193,11 +233,72 @@ export default function Hero1_2() {
                                 top: 10,
                                 left: '50%',
                                 transform: 'translateX(-50%)',
-                                width: 86,
-                                height: 22,
+                                width: 76,
+                                height: 20,
                                 borderRadius: '999px',
                                 backgroundColor: '#000',
                                 zIndex: 5,
+                            }}
+                        />
+
+                        {/* Reflejo del vidrio. Va encima de todo, incluida la isla:
+                            el cristal es una sola pieza que cubre la pantalla entera.
+                            No captura el ratón para no estorbar al contenido. */}
+                        <Box
+                            aria-hidden="true"
+                            sx={{
+                                position: 'absolute',
+                                inset: 0,
+                                borderRadius: '39px',
+                                pointerEvents: 'none',
+                                zIndex: 6,
+                                background: [
+                                    // Cuña de luz con el canto cortado en seco. Es el corte
+                                    // nítido —no el brillo— lo que el ojo lee como vidrio;
+                                    // un degradado suave solo parece neblina.
+                                    'linear-gradient(197deg,' +
+                                        ' rgba(255, 255, 255, 0.17) 0%,' +
+                                        ' rgba(255, 255, 255, 0.09) 27%,' +
+                                        ' rgba(255, 255, 255, 0.09) 32.6%,' +
+                                        ' rgba(255, 255, 255, 0) 33%)',
+                                    // Filo encendido justo encima del corte, donde la luz
+                                    // roza el canto del cristal.
+                                    'linear-gradient(197deg,' +
+                                        ' transparent 29.5%,' +
+                                        ' rgba(255, 255, 255, 0.26) 32.2%,' +
+                                        ' rgba(255, 255, 255, 0) 33%)',
+                                    // Segundo reflejo, más abajo y mucho más tenue: el
+                                    // espesor del vidrio devuelve la misma luz dos veces.
+                                    'linear-gradient(197deg,' +
+                                        ' transparent 52%,' +
+                                        ' rgba(255, 255, 255, 0.07) 55%,' +
+                                        ' rgba(255, 255, 255, 0) 58%)',
+                                    // Cantos laterales: el vidrio curvo devuelve una línea
+                                    // de luz contra el aluminio.
+                                    'linear-gradient(90deg,' +
+                                        ' rgba(255, 255, 255, 0.20) 0px,' +
+                                        ' rgba(255, 255, 255, 0) 5px)',
+                                    'linear-gradient(270deg,' +
+                                        ' rgba(255, 255, 255, 0.12) 0px,' +
+                                        ' rgba(255, 255, 255, 0) 4px)',
+                                    // Halo frío de la fuente de luz, fuera de cuadro.
+                                    'radial-gradient(115% 75% at 4% -14%,' +
+                                        ' rgba(206, 227, 255, 0.30) 0%,' +
+                                        ' rgba(206, 227, 255, 0.06) 40%,' +
+                                        ' transparent 68%)',
+                                    // Rebote cálido del ambiente por la esquina opuesta.
+                                    'radial-gradient(85% 55% at 106% 112%,' +
+                                        ' rgba(255, 236, 210, 0.14) 0%,' +
+                                        ' transparent 55%)',
+                                    // Viñeta: el canto curvo apaga la luz en el perímetro.
+                                    'radial-gradient(140% 115% at 50% 45%,' +
+                                        ' transparent 54%,' +
+                                        ' rgba(0, 0, 0, 0.13) 100%)',
+                                ].join(', '),
+                                // Canto del cristal: luz arriba, sombra abajo.
+                                boxShadow:
+                                    'inset 0 1px 1.5px rgba(255, 255, 255, 0.6),' +
+                                    ' inset 0 -1px 2px rgba(0, 0, 0, 0.2)',
                             }}
                         />
 
@@ -208,9 +309,9 @@ export default function Hero1_2() {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    px: 2.5,
-                                    pt: 1.5,
-                                    pb: 0.5,
+                                    px: 4.5,
+                                    pt: 1,
+                                    pb: 0.25,
                                     fontSize: 12,
                                     fontWeight: 600,
                                 }}
@@ -223,14 +324,14 @@ export default function Hero1_2() {
                                 </Box>
                             </Box>
 
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 1.5, pb: 1.25 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 1.5, pb: 0.75 }}>
                                 <ArrowBackIosNewIcon sx={{ fontSize: 16, opacity: 0.9 }} />
 
                                 <Box
                                     aria-hidden="true"
                                     sx={{
-                                        width: 38,
-                                        height: 38,
+                                        width: 30,
+                                        height: 30,
                                         borderRadius: '50%',
                                         backgroundColor: 'rgba(255, 255, 255, 0.9)',
                                         color: WHATSAPP.header,
@@ -238,7 +339,7 @@ export default function Hero1_2() {
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         fontWeight: 700,
-                                        fontSize: 17,
+                                        fontSize: 13,
                                         flexShrink: 0,
                                     }}
                                 >
@@ -273,7 +374,7 @@ export default function Hero1_2() {
                             sx={{
                                 flexGrow: 1,
                                 overflowY: 'auto',
-                                px: 1.5,
+                                px: '12px',
                                 py: 1.5,
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -312,7 +413,7 @@ export default function Hero1_2() {
                                         sx={{
                                             position: 'relative',
                                             alignSelf: esDeOlivia ? 'flex-start' : 'flex-end',
-                                            maxWidth: '80%',
+                                            maxWidth: '82%',
                                             mt: abreTanda && indice !== 0 ? 0.75 : 0,
                                             backgroundColor: esDeOlivia
                                                 ? WHATSAPP.burbujaOlivia
@@ -320,8 +421,7 @@ export default function Hero1_2() {
                                             color: WHATSAPP.texto,
                                             borderRadius: '8px',
                                             px: 1.25,
-                                            pt: 0.75,
-                                            pb: 0.5,
+                                            py: 0.6,
                                             boxShadow: '0 1px 0.5px rgba(11, 20, 26, 0.13)',
                                             animation: sinAnimacion
                                                 ? 'none'
@@ -337,32 +437,40 @@ export default function Hero1_2() {
                                     >
                                         <Typography
                                             component="p"
-                                            sx={{ fontSize: 13.5, lineHeight: 1.38 }}
-                                        >
-                                            {mensaje.texto}
-                                        </Typography>
-
-                                        <Box
                                             sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                justifyContent: 'flex-end',
-                                                gap: 0.4,
-                                                mt: 0.2,
+                                                fontSize: 13.5,
+                                                lineHeight: 1.38,
+                                                // Contiene el float de la hora: sin esto la
+                                                // burbuja no crece cuando la hora se baja
+                                                // a una línea propia.
+                                                display: 'flow-root',
                                             }}
                                         >
+                                            {mensaje.texto}
+                                            {/* Como en WhatsApp: la hora se acomoda al final
+                                                de la última línea, y solo baja si no cabe. */}
                                             <Box
                                                 component="span"
-                                                sx={{ fontSize: 10, color: WHATSAPP.hora }}
+                                                sx={{
+                                                    float: 'right',
+                                                    display: 'inline-flex',
+                                                    alignItems: 'center',
+                                                    gap: 0.4,
+                                                    ml: 1,
+                                                    mt: '6px',
+                                                    fontSize: 10,
+                                                    color: WHATSAPP.hora,
+                                                    whiteSpace: 'nowrap',
+                                                }}
                                             >
                                                 {mensaje.hora}
+                                                {!esDeOlivia && (
+                                                    <DoneAllIcon
+                                                        sx={{ fontSize: 14, color: WHATSAPP.check }}
+                                                    />
+                                                )}
                                             </Box>
-                                            {!esDeOlivia && (
-                                                <DoneAllIcon
-                                                    sx={{ fontSize: 14, color: WHATSAPP.check }}
-                                                />
-                                            )}
-                                        </Box>
+                                        </Typography>
                                     </Box>
                                 );
                             })}
@@ -456,6 +564,27 @@ export default function Hero1_2() {
                             >
                                 <SendIcon sx={{ fontSize: 19, ml: '2px' }} />
                             </Box>
+                        </Box>
+
+                        {/* Barra de gestos del sistema */}
+                        <Box
+                            aria-hidden="true"
+                            sx={{
+                                flexShrink: 0,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                pb: 1,
+                                backgroundColor: WHATSAPP.fondoChat,
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: 115,
+                                    height: 3,
+                                    borderRadius: '999px',
+                                    backgroundColor: 'rgba(17, 27, 33, 0.35)',
+                                }}
+                            />
                         </Box>
                     </Box>
                 </Box>
