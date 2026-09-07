@@ -1,6 +1,6 @@
 export const paletaMarca = {
     principal: '#2a003d',
-    secundario: '#21c45e',
+    secundario: '#5aca97',
     acento: '#804198',
 
     textoPrincipal: '#141414',

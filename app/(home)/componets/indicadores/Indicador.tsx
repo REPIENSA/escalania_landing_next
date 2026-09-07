@@ -52,10 +52,13 @@ export function Indicador({ icono: Icono, prefijo, valor, sufijo, titulo }: Prop
         // vuelva a la pestaña. Mejor no arrancar el conteo y dejar el dato.
         if (document.hidden) return;
 
-        setValorMostrado(0);
-
         let cuadro = 0;
         let inicio = 0;
+
+        // Bajar la cifra a cero es otro cambio de estado: hacerlo aquí mismo
+        // encadenaría un render sobre el commit del efecto. Va en el siguiente
+        // cuadro, que llega mucho antes de que la tarjeta entre en pantalla.
+        const cuadroInicial = requestAnimationFrame(() => setValorMostrado(0));
 
         const contar = (ahora: number) => {
             if (!inicio) inicio = ahora;
@@ -84,6 +87,7 @@ export function Indicador({ icono: Icono, prefijo, valor, sufijo, titulo }: Prop
 
         return () => {
             observador.disconnect();
+            cancelAnimationFrame(cuadroInicial);
             cancelAnimationFrame(cuadro);
         };
     }, [valor, sinAnimacion]);
