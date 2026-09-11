@@ -118,15 +118,15 @@ export const tema = createTheme({
 
                 // Variante OUTLINED — borde azul, fondo transparente
                 outlined: ({ theme }) => ({
-                    borderColor: theme.palette.marca.principal,
-                    color: theme.palette.marca.principal,
+                    borderColor: theme.palette.marca.secundario,
+                    color: theme.palette.marca.secundario,
                     borderWidth: '1.5px',
                     backgroundColor: 'transparent',
 
                     '@media (hover: hover)': {
                         '&:hover': {
-                            borderWidth: '1.5px',
-                            borderColor: theme.palette.marca.principal,
+                            borderColor: '#fff',
+                            color: '#fff',
                             backgroundColor: alpha(theme.palette.marca.principal, 0.06),
                             boxShadow: 'none',
                         },

@@ -6,7 +6,7 @@ export const paletaMarca = {
     textoPrincipal: '#141414',
     textoSecundario: '#bbbbbb',
 
-    fondo1: '#141414',
-    fondo2: '#fbe3c4',
-    fondo3: '#f7f0e8',
+    fondo1: '#320b3b',
+    fondo2: '#fff',
+    fondo3: '#fbe3c4',
 };

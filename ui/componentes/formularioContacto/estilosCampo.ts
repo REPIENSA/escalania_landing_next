@@ -13,7 +13,7 @@ export const COLOR_ERROR_CAMPO = "#b3261e";
 export const estilosCampoFormulario = (theme: Theme) => ({
     "& .MuiOutlinedInput-root": {
         borderRadius: "10px",
-        backgroundColor: alpha(theme.palette.marca.fondo2, 0.6),
+        backgroundColor: alpha(theme.palette.marca.fondo2, 0.9),
         transition: "all 0.25s ease",
         "& fieldset": {
             borderColor: "transparent",

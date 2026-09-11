@@ -9,7 +9,7 @@ export default function Hero2_2() {
             id="contacto"
             sx={{
                 borderRadius: 8 ,
-                //backgroundColor: paletaMarca.fondo2,
+                backgroundColor: paletaMarca.fondo3,
                 boxShadow: "none",
                 p: { xs: 2.5, md: 4 },
             }}

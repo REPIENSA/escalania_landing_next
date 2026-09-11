@@ -4,7 +4,7 @@ import { paletaMarca } from '@/ui/theme/colores';
 
 export default function TopHeader() {
     return (
-        <Box sx={{px: { xs: 2, md: 4, lg: 12 }, py: { xs: 1, md: 2, lg: 3 }, borderBottom: `1px solid ${paletaMarca.textoSecundario}`, background: paletaMarca.fondo1, }}>
+        <Box sx={{px: { xs: 2, md: 4, lg: 12 }, py: { xs: 1, md: 2, lg: 3 }, background: paletaMarca.fondo1, }}>
             <Container maxWidth="xl">
                 <Box
                     sx={{

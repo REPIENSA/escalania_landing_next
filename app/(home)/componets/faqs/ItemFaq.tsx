@@ -51,7 +51,7 @@ export function ItemFaq({ faq, abierta, onAlternar }: PropsItemFaq) {
             </AccordionSummary>
 
             <AccordionDetails id={`respuesta-${faq.id}`} sx={{ px: 0, pt: 0, pb: 3, pr: { md: 6 } }}>
-                <Typography sx={{ color: paletaMarca.textoSecundario }}>
+                <Typography sx={{ color: paletaMarca.textoPrincipal }}>
                     {faq.respuesta}
                 </Typography>
             </AccordionDetails>

@@ -32,7 +32,7 @@ export const INDICADORES: DatoIndicador[] = [
         icono: EventAvailableIcon,
         prefijo: '+',
         valor: 3000,
-        titulo: 'Citas agendadas en este mes',
+        titulo: 'Citas agendadas el mes pasado',
     },
     {
         id: 'natural',

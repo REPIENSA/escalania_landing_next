@@ -98,7 +98,7 @@ export function Indicador({ icono: Icono, prefijo, valor, sufijo, titulo }: Prop
         <Card
             ref={ref}
             sx={{
-                backgroundColor: paletaMarca.fondo2,
+                backgroundColor: '#fff', //paletaMarca.fondo2,
                 borderRadius: 5,
                 boxShadow: 'none',
                 width: '100%',

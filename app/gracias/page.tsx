@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Box, Button, Container, Typography } from '@mui/material';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { paletaMarca } from '@/ui/theme/colores';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const metadata: Metadata = {
     title: 'Gracias | Escalania',
@@ -23,7 +25,7 @@ export default function GraciasPage() {
             }}
         >
             <Container maxWidth="sm">
-                <Box sx={{ textAlign: 'center' }}>
+                <Box sx={{ textAlign: 'center', color:"#fff", mb:3 }}>
                     <CheckCircleOutlinedIcon
                         sx={{ fontSize: 96, color: paletaMarca.principal, mb: 2 }}
                     />
@@ -37,7 +39,13 @@ export default function GraciasPage() {
                         demostración. Revisa también tu correo por si acaso.
                     </Typography>
 
-                    <Button href="/" size="large">
+                    <Button href="/" size="large" endIcon={<WhatsAppIcon />}>
+                        Chatear con un especialista
+                    </Button>
+                </Box>
+
+                <Box sx={{ textAlign: 'center', color:"#fff" }}>
+                    <Button variant="outlined" href="/" size="large" startIcon={<ArrowBackIcon />}>
                         Volver al inicio
                     </Button>
                 </Box>

@@ -62,12 +62,16 @@ const COLUMNAS: Columna[] = [
     },
 ];
 
-const COLOR_BORDE = paletaMarca.acento;
+const COLOR_BORDE = paletaMarca.fondo1;
 
 // Estructura común a las cuatro celdas: es lo que mantiene el mismo espacio
 // entre icono y texto en la cabecera y en el contenido.
 const estilosCelda = {
     flex: 1,
+    // Sin esto las columnas se descuadran: un ítem flex trae `min-width: auto`
+    // y no baja del ancho de su palabra más larga, así que una celda con una
+    // palabra larga se roba espacio a la otra y mueve el divisor de esa fila.
+    minWidth: 0,
     display: 'flex',
     gap: { xs: 1, md: 1.25 },
     px: { xs: 1.5, md: 2.5 },
@@ -96,7 +100,7 @@ export default function QueEs_2() {
                 sx={{
                     display: 'flex',
                     minHeight: 56,
-                    backgroundColor: paletaMarca.acento,
+                    backgroundColor: paletaMarca.fondo1,
                     color: '#fff',
                 }}
             >
@@ -155,7 +159,12 @@ export default function QueEs_2() {
                                     // Baja el icono hasta la primera línea del texto.
                                     sx={{ ...estilosIcono, color: columna.color, mt: '3px' }}
                                 />
-                                <Typography variant="body2">
+                                <Typography
+                                    variant="body2"
+                                    // Ahora que la celda sí encoge, la palabra
+                                    // larga tiene que poder partirse.
+                                    sx={{ overflowWrap: 'anywhere' }}
+                                >
                                     {fila[columna.campo]}
                                 </Typography>
                             </Box>
