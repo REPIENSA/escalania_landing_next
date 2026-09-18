@@ -1,29 +1,22 @@
-
-import { Box } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 
 export const metadata = {
-    title: 'Escalania | Olivia, el agente  de IA para spas y centros esteticos',
-	description:'Agente de Inteligencia Artifical conversacional especializado en spas y centros esteticos',
+    title: 'Escalania | Agentes de IA para tu negocio',
+    description: 'Agentes de Inteligencia Artificial que conversan con tus clientes, resuelven dudas y agendan citas por WhatsApp.',
 };
 
-import Hero1 from './componets/hero1/Hero1';
-import Hero2 from './componets/hero2/Hero2';
-import Faqs from './componets/faqs/Faqs';
-import QueEs from './componets/queEs/QueEs';
-import TopHeader from './componets/topHeader/TopHeader';
-import Indicadores from './componets/indicadores/Indicadores';
-
-export default async function HomePage() {
-
-
+/** Raíz del sitio. Marcador de posición mientras se construye la home. */
+export default function HomePage() {
     return (
-        <Box>
-            <TopHeader/>
-            <Hero1/>
-            <Hero2/>
-            <Indicadores/>
-            <QueEs/>
-            <Faqs/>
+        <Box sx={{ px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
+            <Container maxWidth="md">
+                <Typography variant="h1" sx={{ mb: 2 }}>
+                    Escalania
+                </Typography>
+                <Typography variant="h5" component="p">
+                    Home en construcción.
+                </Typography>
+            </Container>
         </Box>
     );
 }
