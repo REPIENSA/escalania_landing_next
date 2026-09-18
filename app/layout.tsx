@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   title: "Escalania | Agentes de IA para spas y centros estéticos",
   description:
     "Agentes de Inteligencia Artificial que conversan con tus clientes, resuelven dudas y agendan citas por WhatsApp.",
+  // Verificación del dominio en Meta Business Manager (Seguridad de la marca → Dominios).
+  verification: {
+    other: {
+      "facebook-domain-verification": "eu9horfqbz15ohozj361krmk184nfg",
+    },
+  },
 };
 
 interface PropsRootLayout {
