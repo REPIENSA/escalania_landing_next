@@ -39,7 +39,7 @@ export default function GraciasPage() {
                         demostración. Revisa también tu correo por si acaso.
                     </Typography>
 
-                    <Button href="/" size="large" endIcon={<WhatsAppIcon />}>
+                    <Button href="https://wa.link/4ju65b" size="large" endIcon={<WhatsAppIcon />}>
                         Chatear con un especialista
                     </Button>
                 </Box>
