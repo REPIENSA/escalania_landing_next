@@ -6,8 +6,8 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: "*",
             allow: "/",
-            // /gracias solo tiene sentido después de enviar el formulario.
-            disallow: ["/api/", "/gracias"],
+            // /olivia-gracias solo tiene sentido después de enviar el formulario.
+            disallow: ["/api/", "/olivia-gracias"],
         },
         sitemap: `${URL_SITIO}/sitemap.xml`,
     };

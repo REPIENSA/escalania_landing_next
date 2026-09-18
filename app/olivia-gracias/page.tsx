@@ -4,6 +4,7 @@ import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import { paletaMarca } from '@/ui/theme/colores';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { EventoMetaPixel } from '@/ui/componentes/metaPixel/EventoMetaPixel';
 
 export const metadata: Metadata = {
     title: 'Gracias | Escalania',
@@ -24,6 +25,8 @@ export default function GraciasPage() {
                 alignItems: 'center',
             }}
         >
+            {/* Conversión: llegar aquí significa que el formulario se envió con éxito. */}
+            <EventoMetaPixel evento="Lead" />
             <Container maxWidth="sm">
                 <Box sx={{ textAlign: 'center', color:"#fff", mb:3 }}>
                     <CheckCircleOutlinedIcon

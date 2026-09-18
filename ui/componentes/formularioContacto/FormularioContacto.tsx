@@ -157,7 +157,7 @@ export function FormularioContacto({
                 return;
             }
 
-            router.push("/gracias");
+            router.push("/olivia-gracias");
         } catch {
             setErrores((prev) => ({
                 ...prev,

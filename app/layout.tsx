@@ -5,6 +5,7 @@ import { URL_SITIO } from "@/infrastructure/seo/configuracionSitio";
 import "./globals.css";
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { MetaPixel } from "@/ui/componentes/metaPixel/MetaPixel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: Readonly<PropsRootLayout>) {
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
+        <MetaPixel />
       </body>
     </html>
   );
