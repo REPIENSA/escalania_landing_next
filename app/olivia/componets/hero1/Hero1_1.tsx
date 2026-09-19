@@ -46,7 +46,7 @@ export default function Hero1_1() {
             </Button>
             <Box >
                 <Typography component="p" sx={{ color: paletaMarca.textoSecundario }}>
-                    Desde S/ 490 mensuales, puedes acceder a todo el poder de Olivia, incluye hasta 1,500 conversaciones al mes con tus clientes.
+                    Desde S/ 490 mensuales, Olivia 24/7 para tu negocio, incluye hasta 1,500 conversaciones al mes.
                 </Typography>
             </Box>
         </Box>
