@@ -12,12 +12,15 @@ import Faqs from './componets/faqs/Faqs';
 import QueEs from './componets/queEs/QueEs';
 import TopHeader from './componets/topHeader/TopHeader';
 import Indicadores from './componets/indicadores/Indicadores';
+import { EventoMetaPixel } from '@/ui/componentes/metaPixel/EventoMetaPixel';
 
 export default async function HomePage() {
 
 
     return (
         <Box>
+            {/* Marca la visita a la landing como evento propio (PageView se dispara en todas las páginas). */}
+            <EventoMetaPixel evento="ViewContent" />
             <TopHeader/>
             <Hero1/>
             <Hero2/>

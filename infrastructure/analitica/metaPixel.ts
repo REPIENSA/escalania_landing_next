@@ -6,8 +6,13 @@
  */
 export const ID_META_PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "";
 
-/** Eventos estándar de Meta que usamos. */
-export type EventoMetaPixel = "PageView" | "Lead";
+/**
+ * Eventos estándar de Meta que usamos.
+ * - PageView: toda página (lo dispara el layout).
+ * - ViewContent: vio la landing de Olivia.
+ * - Lead: llegó a la página de gracias tras enviar el formulario.
+ */
+export type EventoMetaPixel = "PageView" | "ViewContent" | "Lead";
 
 type FuncionFbq = ((...args: unknown[]) => void) & {
     callMethod?: (...args: unknown[]) => void;
