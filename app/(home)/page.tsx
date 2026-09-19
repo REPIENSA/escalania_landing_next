@@ -1,4 +1,6 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box } from '@mui/material';
+import Hero from './components/hero/Hero';
+import { TopHeader } from '@/ui/componentes/TopHeader/TopHeader';
 
 export const metadata = {
     title: 'Escalania | Agentes de IA para tu negocio',
@@ -8,15 +10,9 @@ export const metadata = {
 /** Raíz del sitio. Marcador de posición mientras se construye la home. */
 export default function HomePage() {
     return (
-        <Box sx={{ px: { xs: 2, md: 4 }, py: { xs: 8, md: 12 } }}>
-            <Container maxWidth="md">
-                <Typography variant="h1" sx={{ mb: 2 }}>
-                    Escalania
-                </Typography>
-                <Typography variant="h5" component="p">
-                    Home en construcción.
-                </Typography>
-            </Container>
+        <Box>
+            <TopHeader />
+            <Hero/>
         </Box>
     );
 }

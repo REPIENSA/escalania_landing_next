@@ -1,10 +1,10 @@
 import { Box, Container, Grid } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 import { paletaMarca } from '@/ui/theme/colores';
-import Hero1_2 from './Hero1_2';
-import Hero1_1 from './Hero1_1';
+import Hero_1 from './Hero_1';
+import Hero_2 from './Hero_2';
 
-export default function Hero1() {
+export default function Hero() {
     return (
         <Box sx={{px:{ xs: 1, md:4, lg: 12}, pt:{ xs: 6, md:8, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, backgroundColor: paletaMarca.fondo1, position: 'relative'}}>
 
@@ -25,7 +25,7 @@ export default function Hero1() {
                     pointerEvents: 'none',
                 }}
             >
-                <source src="/videos/video-olivia.mp4" type="video/mp4" />
+                <source src="/videos/video-home.mp4" type="video/mp4" />
             </Box>
 
             <Box
@@ -41,11 +41,11 @@ export default function Hero1() {
             <Container maxWidth="xl" sx={{ position: 'relative' }}>
                 <Grid container spacing={6} sx={{ alignItems: "center" }}>
                     <Grid size={{ xs: 12, md:6, lg: 7}}>
-                        <Hero1_1 />
+                        <Hero_1 />
                     </Grid>
 
-                    <Grid size={{ xs: 12, md:6, lg: 5}}>
-                        <Hero1_2 />
+                    <Grid size={{ xs: 12, md:12, lg: 12}}>
+                        <Hero_2 />
                     </Grid>
                 </Grid>
             </Container>

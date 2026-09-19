@@ -20,12 +20,12 @@ export default function TopHeader() {
                         sx={{
                             position: 'relative',
                             //width: { xs: 150, md: 100 },
-                            height: { xs: 24, md: 24 },
+                            height: { xs: 36, md: 36 },
                             flexShrink: 0,
                         }}
                     >
                         <Image
-                            src="/imagenes/logo-escalania-olivia.svg"
+                            src="/imagenes/logotipo-escalania.svg"
                             alt="Escalania / Olivia"
                             fill
                             style={{ objectFit: 'contain', objectPosition: 'left center' }}
