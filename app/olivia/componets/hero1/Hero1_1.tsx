@@ -14,7 +14,7 @@ const CAPACIDADES = [
 export default function Hero1_1() {
     return (
         <Box sx={{color:"#fff"}}>
-            <Box sx={{ mb: 3 }}>
+            <Box sx={{ mb: 2 }}>
                 <Typography variant="h1" sx={{mb:1}} >
                     Si te escriben 11:30 de la noche,{' '}
                     <Box component="span" sx={{ color: paletaMarca.secundario }}>
@@ -41,10 +41,10 @@ export default function Hero1_1() {
                 </List>
             </Box>
 
-            <Button href="#contacto" endIcon={<ArrowForwardIcon />}>
+            <Button href="#contacto" endIcon={<ArrowForwardIcon />} sx={{ mb: 2 }}>
                 Agendar una demo
             </Button>
-            <Box sx={{ mt: 4 }}>
+            <Box >
                 <Typography component="p" sx={{ color: paletaMarca.textoSecundario }}>
                     Desde S/ 490 mensuales, puedes acceder a todo el poder de Olivia, incluye hasta 1,500 conversaciones al mes con tus clientes.
                 </Typography>

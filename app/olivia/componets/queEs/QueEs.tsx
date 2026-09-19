@@ -7,9 +7,9 @@ import QueEs_2 from './QueEs_2';
 
 export default function QueEs() {
     return (
-        <Box sx={{ px:{ xs: 1, md:4, lg: 12}, py:{ xs: 6, md:8, lg: 16}, background: '#fff'}}>
+        <Box sx={{ px:{ xs: 1, md:4, lg: 12}, py:{ xs: 4, md:8, lg: 16}, background: '#fff'}}>
             <Container maxWidth="xl">
-                <Grid container spacing={6} sx={{ alignItems: "stretch" }}>
+                <Grid container spacing={{ xs: 2, md: 6, lg: 6 }} sx={{ alignItems: "stretch" }}>
                     
                     <Grid size={{ xs: 12, md:6, lg:6}} sx={{ pr:{ xs: 0, md:6, lg: 6} }}>
                         <QueEs_1/>

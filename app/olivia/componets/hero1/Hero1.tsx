@@ -6,7 +6,7 @@ import Hero1_1 from './Hero1_1';
 
 export default function Hero1() {
     return (
-        <Box sx={{px:{ xs: 1, md:4, lg: 12}, pt:{ xs: 6, md:8, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, backgroundColor: paletaMarca.fondo1, position: 'relative'}}>
+        <Box sx={{px:{ xs: 1, md:4, lg: 12}, pt:{ xs: 4, md:8, lg: 12}, pb:{ xs: 4, md:8, lg: 16}, backgroundColor: paletaMarca.fondo1, position: 'relative'}}>
 
             <Box
                 component="video"
@@ -39,7 +39,7 @@ export default function Hero1() {
             />
 
             <Container maxWidth="xl" sx={{ position: 'relative' }}>
-                <Grid container spacing={6} sx={{ alignItems: "center" }}>
+                <Grid container spacing={{ xs: 2, md:6, lg: 6}} sx={{ alignItems: "center" }}>
                     <Grid size={{ xs: 12, md:6, lg: 7}}>
                         <Hero1_1 />
                     </Grid>

@@ -8,7 +8,7 @@ export default function Hero2_2() {
         <Card
             id="contacto"
             sx={{
-                borderRadius: 8 ,
+                borderRadius: { xs: 4, md: 8 } ,
                 backgroundColor: paletaMarca.fondo3,
                 boxShadow: "none",
                 p: { xs: 2.5, md: 4 },

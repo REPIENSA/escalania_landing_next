@@ -5,7 +5,7 @@ import { ListaFaqs } from './ListaFaqs';
 
 export default function Faqs() {
     return (
-        <Box sx={{ px:{ xs: 1, md:4, lg: 12}, pb:{ xs: 6, md:8, lg: 16}, background: '#fff'}}>
+        <Box sx={{ px:{ xs: 1, md:4, lg: 12}, pt:{ xs: 4},  pb:{ xs: 4, md:8, lg: 12}, background: '#fff'}}>
             <Container maxWidth="md">
                 
                 <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 8 } }}>
